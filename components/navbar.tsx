@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
@@ -32,8 +33,20 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-1.5 sm:gap-2">
-              <div className="text-xl sm:text-2xl font-bold gradient-text">ICRA</div>
-              <div className="hidden sm:block text-xs sm:text-sm text-gray-600 dark:text-gray-400">Satellite School 2026</div>
+              {mounted && (
+                <div className="relative h-8 w-24 sm:h-10 sm:w-32">
+                  <Image
+                    src={theme === 'dark' ? '/Logos/white.png' : '/Logos/black.png'}
+                    alt="ICRA Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              )}
+              {!mounted && (
+                <div className="h-8 w-24 sm:h-10 sm:w-32 bg-gray-200 dark:bg-gray-800 animate-pulse rounded" />
+              )}
             </Link>
 
             <div className="hidden md:flex items-center gap-4 lg:gap-8">

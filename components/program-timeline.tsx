@@ -49,10 +49,10 @@ export function ProgramTimeline() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
             3-Day Intensive Program
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
             June 1-3: Expert-led workshops covering robotics fundamentals, hands-on labs, and advanced topics
           </p>
         </motion.div>
@@ -66,20 +66,20 @@ export function ProgramTimeline() {
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
-              className="group glass rounded-xl p-4 sm:p-6 border border-white/10 hover:border-red-500/50 transition"
+              className="group glass rounded-xl p-4 sm:p-6 border border-gray-200 dark:border-white/10 hover:border-red-500/50 transition"
             >
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <div className="text-xs sm:text-sm font-semibold text-red-400 uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm font-semibold text-red-600 dark:text-red-400 uppercase tracking-wider">
                     {program.day}
                   </div>
-                  <div className="text-xs text-gray-500">{program.date}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-500">{program.date}</div>
                 </div>
 
-                <div className="h-px bg-gradient-to-r from-red-600/50 to-pink-500/50" />
+                <div className="h-px bg-linear-to-r from-red-600/50 to-pink-500/50" />
 
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-400 group-hover:to-pink-400 transition">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-red-600 dark:group-hover:from-red-400 group-hover:to-pink-600 dark:group-hover:to-pink-400 transition">
                     {program.title}
                   </h3>
 
@@ -91,9 +91,9 @@ export function ProgramTimeline() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: (index * 0.1) + (sessionIndex * 0.05) }}
                         viewport={{ once: true }}
-                        className="text-xs sm:text-sm text-gray-300 flex gap-2"
+                        className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 flex gap-2"
                       >
-                        <span className="text-cyan-400 flex-shrink-0">›</span>
+                        <span className="text-cyan-600 dark:text-cyan-400 shrink-0">›</span>
                         <span>{session}</span>
                       </motion.li>
                     ))}
@@ -104,7 +104,7 @@ export function ProgramTimeline() {
                   onClick={() => window.location.href = `/program/${index + 1}`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full mt-3 sm:mt-4 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-white border border-red-500/50 rounded-lg hover:bg-red-500/10 hover:border-red-400/70 transition cursor-pointer"
+                  className="w-full mt-3 sm:mt-4 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-white border border-red-500/50 rounded-lg hover:bg-red-500/10 hover:border-red-400/70 transition cursor-pointer"
                 >
                   View Details
                 </motion.button>
@@ -146,13 +146,13 @@ export function ProgramTimeline() {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -4 }}
-                className="glass rounded-lg p-4 sm:p-6 text-center border border-white/10 hover:border-red-500/30 transition group"
+                className="glass rounded-lg p-4 sm:p-6 text-center border border-gray-200 dark:border-white/10 hover:border-red-500/30 transition group"
               >
-                <div className="text-red-400 mb-3 sm:mb-4 flex justify-center group-hover:scale-110 transition">
+                <div className="text-red-500 dark:text-red-400 mb-3 sm:mb-4 flex justify-center group-hover:scale-110 transition">
                   <IconComponent size={28} className="sm:w-8 sm:h-8" />
                 </div>
-                <h3 className="text-white text-sm sm:text-base font-semibold mb-1 sm:mb-2">{feature.title}</h3>
-                <p className="text-gray-400 text-xs sm:text-sm">{feature.description}</p>
+                <h3 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-1 sm:mb-2">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">{feature.description}</p>
               </motion.div>
             );
           })}

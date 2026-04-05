@@ -55,10 +55,10 @@ export function Speakers() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
             Featured Speakers
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
             Learn from the world&apos;s leading robotics researchers and industry pioneers
           </p>
         </motion.div>
@@ -72,28 +72,28 @@ export function Speakers() {
               transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
-              className="group glass rounded-lg p-4 sm:p-6 border border-white/10 hover:border-purple-500/50 transition"
+              className="group glass rounded-lg p-4 sm:p-6 border border-gray-200 dark:border-white/10 hover:border-purple-500/50 transition"
             >
               <div className="space-y-3 sm:space-y-4">
                 {/* Avatar placeholder */}
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white">
                   {speaker.name.charAt(0)}
                 </div>
 
                 <div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-purple-600 dark:group-hover:from-purple-400 group-hover:to-cyan-600 dark:group-hover:to-cyan-400 transition">
                     {speaker.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-purple-400 font-medium">{speaker.role}</p>
-                  <p className="text-xs text-gray-500 mt-1">{speaker.specialty}</p>
+                  <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 font-medium">{speaker.role}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{speaker.specialty}</p>
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-300">{speaker.bio}</p>
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">{speaker.bio}</p>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-white border border-red-500/50 rounded-lg hover:bg-red-500/10 hover:border-red-400/70 transition mt-3 sm:mt-4"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-white border border-red-500/50 rounded-lg hover:bg-red-500/10 hover:border-red-400/70 transition mt-3 sm:mt-4"
                 >
                   Learn More
                 </motion.button>
@@ -109,7 +109,7 @@ export function Speakers() {
           viewport={{ once: true }}
           className="mt-10 sm:mt-12 lg:mt-16 text-center"
         >
-          <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6 px-4">Speakers to be announced as we approach the event</p>
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-4 sm:mb-6 px-4">Speakers to be announced as we approach the event</p>
           <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}

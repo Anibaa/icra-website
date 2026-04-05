@@ -23,10 +23,10 @@ export function Partners() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
             Partners & Sponsors
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
             Supported by leading academic institutions and industry leaders
           </p>
         </motion.div>
@@ -45,11 +45,11 @@ export function Partners() {
               transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="glass rounded-lg p-4 sm:p-6 border border-white/10 hover:border-cyan-500/30 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
+              className="glass rounded-lg p-4 sm:p-6 border border-gray-200 dark:border-white/10 hover:border-cyan-500/30 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
             >
               <div className="space-y-1.5 sm:space-y-2">
-                <h3 className="font-bold text-sm sm:text-base text-white">{partner.name}</h3>
-                <p className="text-xs text-gray-500 uppercase tracking-wider">{partner.category}</p>
+                <h3 className="font-bold text-sm sm:text-base text-gray-900 dark:text-white">{partner.name}</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider">{partner.category}</p>
               </div>
             </motion.div>
           ))}
@@ -62,7 +62,7 @@ export function Partners() {
           viewport={{ once: true }}
           className="mt-10 sm:mt-12 lg:mt-16 text-center"
         >
-          <p className="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             Interested in becoming a partner or sponsor? We welcome collaboration from organizations committed to advancing robotics research and education.
           </p>
           <motion.button

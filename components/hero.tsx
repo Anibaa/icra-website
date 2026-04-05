@@ -29,7 +29,7 @@ export function Hero() {
             <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full text-xs sm:text-sm font-semibold" style={{ backgroundColor: 'rgba(242, 1, 54, 0.15)', borderColor: 'rgba(242, 1, 54, 0.5)', color: '#f20136' }}>
               June 1-3, 2026 • 3 Days
             </div>
-            <div className="block px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full text-xs font-semibold" style={{ backgroundColor: 'rgba(100, 116, 139, 0.1)', borderColor: 'rgba(100, 116, 139, 0.3)', color: '#94a3b8' }}>
+            <div className="block px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full text-xs font-semibold bg-slate-500/10 dark:bg-slate-500/10 border-slate-500/30 dark:border-slate-500/30 text-slate-600 dark:text-slate-400">
               Organized by IEEE RAS Tunisia Chapter
             </div>
           </motion.div>
@@ -38,7 +38,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900 dark:text-white"
           >
             ICRA Satellite School
           </motion.h1>
@@ -47,7 +47,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-lg leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-300 max-w-lg leading-relaxed"
           >
             Join world-leading roboticists for an intensive program covering advanced topics in robotics, control systems, and autonomous systems.
           </motion.p>
@@ -69,7 +69,7 @@ export function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 glass rounded-lg text-sm sm:text-base text-white font-medium border border-white/30 hover:border-cyan-400/50 hover:bg-cyan-500/10 transition"
+              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 glass rounded-lg text-sm sm:text-base text-gray-900 dark:text-white font-medium border border-gray-300 dark:border-white/30 hover:border-cyan-400/50 hover:bg-cyan-500/10 transition"
             >
               Learn More
             </motion.button>
@@ -79,19 +79,19 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-white/10"
+            className="flex flex-wrap gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-gray-300 dark:border-white/10"
           >
             <div>
               <div className="text-xl sm:text-2xl font-bold" style={{ color: '#f20136' }}>3 Days</div>
-              <div className="text-xs sm:text-sm text-gray-400">intensive training</div>
+              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">intensive training</div>
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-bold text-cyan-400">10+</div>
-              <div className="text-xs sm:text-sm text-gray-400">expert speakers</div>
+              <div className="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400">10+</div>
+              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">expert speakers</div>
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-bold text-purple-400">8</div>
-              <div className="text-xs sm:text-sm text-gray-400">key topics</div>
+              <div className="text-xl sm:text-2xl font-bold text-purple-600 dark:text-purple-400">8</div>
+              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">key topics</div>
             </div>
           </motion.div>
         </motion.div>
@@ -126,7 +126,7 @@ export function Hero() {
             <div className="relative z-10 text-center space-y-2 sm:space-y-4">
               <div className="inline-block px-4 py-3 sm:px-6 sm:py-4 lg:px-8 glass rounded-xl sm:rounded-2xl">
                 <div className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-1 sm:mb-2">ICRA</div>
-                <div className="text-xs sm:text-sm text-gray-400">Satellite School 2026</div>
+                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Satellite School 2026</div>
               </div>
             </div>
           </motion.div>

@@ -2,8 +2,18 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export function Footer() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <footer className="relative w-full border-t border-gray-300 dark:border-white/10 bg-gray-50/50 dark:bg-background/50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
@@ -15,8 +25,20 @@ export function Footer() {
             viewport={{ once: true }}
             className="col-span-1"
           >
-            <Link href="/" className="flex items-center gap-2 mb-3 sm:mb-4">
-              <div className="text-xl sm:text-2xl font-bold gradient-text">ICRA</div>
+            <Link href="/" className="flex items-center mb-3 sm:mb-4">
+              {mounted && (
+                <div className="relative h-8 w-24 sm:h-10 sm:w-32">
+                  <Image
+                    src={theme === 'dark' ? '/Logos/white.png' : '/Logos/black.png'}
+                    alt="ICRA Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              )}
+              {!mounted && (
+                <div className="h-8 w-24 sm:h-10 sm:w-32 bg-gray-200 dark:bg-gray-800 animate-pulse rounded" />
+              )}
             </Link>
             <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
               Advancing robotics education and research worldwide.

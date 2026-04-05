@@ -3,8 +3,17 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { CircuitBackground } from './circuit-background';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export function Hero() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section className="relative w-full min-h-screen pt-16 sm:pt-20 flex items-center justify-center overflow-hidden">
       {/* Background gradient effect */}
@@ -125,7 +134,20 @@ export function Hero() {
             {/* Logo content */}
             <div className="relative z-10 text-center space-y-2 sm:space-y-4">
               <div className="inline-block px-4 py-3 sm:px-6 sm:py-4 lg:px-8 glass rounded-xl sm:rounded-2xl">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-1 sm:mb-2">ICRA</div>
+                {mounted && (
+                  <div className="relative h-16 w-32 sm:h-20 sm:w-40 lg:h-24 lg:w-48 mx-auto mb-2 sm:mb-3">
+                    <Image
+                      src={theme === 'dark' ? '/Logos/white.png' : '/Logos/black.png'}
+                      alt="ICRA Logo"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                )}
+                {!mounted && (
+                  <div className="h-16 w-32 sm:h-20 sm:w-40 lg:h-24 lg:w-48 mx-auto mb-2 sm:mb-3 bg-gray-200 dark:bg-gray-800 animate-pulse rounded" />
+                )}
                 <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Satellite School 2026</div>
               </div>
             </div>

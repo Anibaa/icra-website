@@ -41,55 +41,55 @@ const programDays = [
 
 export function ProgramTimeline() {
   return (
-    <section id="program" className="relative w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section id="program" className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10 sm:mb-12 lg:mb-16"
+          className="text-center mb-8 sm:mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-tight tracking-tight">
             3-Day Intensive Program
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-4">
             June 1-3: Expert-led workshops covering robotics fundamentals, hands-on labs, and advanced topics
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {programDays.map((program, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.08 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="group glass rounded-xl p-4 sm:p-6 border border-gray-200 dark:border-white/10 hover:border-red-500/50 transition"
+              whileHover={{ y: -4 }}
+              className="group glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-red-500/20 transition"
             >
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3">
                 <div>
-                  <div className="text-xs sm:text-sm font-semibold text-red-600 dark:text-red-400 uppercase tracking-wider">
+                  <div className="text-xs font-semibold text-red-600 dark:text-red-400 uppercase tracking-wider">
                     {program.day}
                   </div>
                   <div className="text-xs text-gray-500 dark:text-gray-500">{program.date}</div>
                 </div>
 
-                <div className="h-px bg-linear-to-r from-red-600/50 to-pink-500/50" />
+                <div className="h-px bg-linear-to-r from-red-600/40 to-pink-500/40" />
 
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-red-600 dark:group-hover:from-red-400 group-hover:to-pink-600 dark:group-hover:to-pink-400 transition">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-red-600 dark:group-hover:from-red-400 group-hover:to-pink-600 dark:group-hover:to-pink-400 transition">
                     {program.title}
                   </h3>
 
-                  <ul className="space-y-2 sm:space-y-3">
+                  <ul className="space-y-2">
                     {program.sessions.map((session, sessionIndex) => (
                       <motion.li
                         key={sessionIndex}
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: (index * 0.1) + (sessionIndex * 0.05) }}
+                        transition={{ delay: (index * 0.08) + (sessionIndex * 0.04) }}
                         viewport={{ once: true }}
                         className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 flex gap-2"
                       >
@@ -102,9 +102,9 @@ export function ProgramTimeline() {
 
                 <motion.button
                   onClick={() => window.location.href = `/program/${index + 1}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full mt-3 sm:mt-4 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-white border border-red-500/50 rounded-lg hover:bg-red-500/10 hover:border-red-400/70 transition cursor-pointer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full mt-3 px-4 py-2 text-xs font-medium text-gray-900 dark:text-white border border-red-500/30 rounded-lg hover:bg-red-500/10 hover:border-red-400/50 transition cursor-pointer"
                 >
                   View Details
                 </motion.button>
@@ -118,7 +118,7 @@ export function ProgramTimeline() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 sm:mt-12 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+          className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
         >
           {[
             {
@@ -146,13 +146,13 @@ export function ProgramTimeline() {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -4 }}
-                className="glass rounded-lg p-4 sm:p-6 text-center border border-gray-200 dark:border-white/10 hover:border-red-500/30 transition group"
+                className="glass rounded-lg p-4 text-center border border-gray-200 dark:border-white/10 hover:border-red-500/20 transition group"
               >
-                <div className="text-red-500 dark:text-red-400 mb-3 sm:mb-4 flex justify-center group-hover:scale-110 transition">
-                  <IconComponent size={28} className="sm:w-8 sm:h-8" />
+                <div className="text-red-500 dark:text-red-400 mb-3 flex justify-center group-hover:scale-105 transition">
+                  <IconComponent size={22} />
                 </div>
-                <h3 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-1 sm:mb-2">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">{feature.description}</p>
+                <h3 className="text-gray-900 dark:text-white text-sm font-semibold mb-1">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-xs">{feature.description}</p>
               </motion.div>
             );
           })}

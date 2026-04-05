@@ -6,13 +6,17 @@ import { About } from '@/components/about';
 import { Speakers } from '@/components/speakers';
 import { Committee } from '@/components/committee';
 import { Partners } from '@/components/partners';
+import { FAQSection } from '@/components/faq-section';
 import { CTA } from '@/components/cta';
 import { Footer } from '@/components/footer';
 import { ScrollToTop } from '@/components/scroll-to-top';
+import { StickyCTABar } from '@/components/sticky-cta-bar';
+import { ScrollProgress } from '@/components/scroll-progress';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background scroll-smooth">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <CountdownTimer />
@@ -21,9 +25,11 @@ export default function Home() {
       <Speakers />
       <Committee />
       <Partners />
+      <FAQSection />
       <CTA />
       <Footer />
       <ScrollToTop />
+      <StickyCTABar />
     </main>
   );
 }

@@ -15,18 +15,18 @@ const partners = [
 
 export function Partners() {
   return (
-    <section id="partners" className="relative w-full py-20 overflow-hidden">
+    <section id="partners" className="relative w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white">
             Partners & Sponsors
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
             Supported by leading academic institutions and industry leaders
           </p>
         </motion.div>
@@ -35,7 +35,7 @@ export function Partners() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {partners.map((partner, index) => (
             <motion.div
@@ -45,10 +45,10 @@ export function Partners() {
               transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="glass rounded-lg p-6 border border-white/10 hover:border-cyan-500/30 transition flex flex-col items-center justify-center text-center min-h-32"
+              className="glass rounded-lg p-4 sm:p-6 border border-white/10 hover:border-cyan-500/30 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
             >
-              <div className="space-y-2">
-                <h3 className="font-bold text-white">{partner.name}</h3>
+              <div className="space-y-1.5 sm:space-y-2">
+                <h3 className="font-bold text-sm sm:text-base text-white">{partner.name}</h3>
                 <p className="text-xs text-gray-500 uppercase tracking-wider">{partner.category}</p>
               </div>
             </motion.div>
@@ -60,16 +60,16 @@ export function Partners() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-10 sm:mt-12 lg:mt-16 text-center"
         >
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             Interested in becoming a partner or sponsor? We welcome collaboration from organizations committed to advancing robotics research and education.
           </p>
           <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             style={{ backgroundColor: '#f20136' }}
-            className="px-8 py-3 rounded-lg text-white font-semibold hover:shadow-lg transition border border-pink-400/50 brand-red-glow"
+            className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base text-white font-semibold hover:shadow-lg transition border border-pink-400/50 brand-red-glow"
           >
             Partnership Inquiries
           </motion.button>

@@ -74,7 +74,7 @@ export function CountdownTimer() {
   if (!mounted) return null;
 
   return (
-    <section id="countdown" className="relative w-full py-32 overflow-hidden">
+    <section id="countdown" className="relative w-full py-16 sm:py-24 lg:py-32 overflow-hidden">
       {/* Robot background effects */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* Animated grid background */}
@@ -169,56 +169,56 @@ export function CountdownTimer() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-20 text-center"
+          className="mb-12 sm:mb-16 lg:mb-20 text-center"
         >
-          <div className="relative glass rounded-3xl p-12 border-2 border-red-500/30 overflow-hidden max-w-2xl mx-auto">
+          <div className="relative glass rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-red-500/30 overflow-hidden max-w-2xl mx-auto">
             {/* Background glow */}
             <div
               className="absolute inset-0 blur-2xl opacity-20 -z-10"
               style={{ backgroundColor: '#f20136' }}
             />
 
-            <div className="relative z-10 space-y-8">
+            <div className="relative z-10 space-y-4 sm:space-y-6 lg:space-y-8">
               <div>
-                <h2 className="text-5xl md:text-6xl font-bold mb-2 text-white tracking-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2 text-white tracking-tight">
                   EVENT STARTS IN
                 </h2>
-                <p className="text-gray-400 text-lg tracking-widest uppercase">June 1-3 Satellite School</p>
+                <p className="text-gray-400 text-xs sm:text-base lg:text-lg tracking-widest uppercase">June 1-3 Satellite School</p>
               </div>
 
               {/* Large Event Countdown */}
-              <div className="grid grid-cols-3 gap-4">
-                <motion.div className="glass rounded-xl p-6 border border-red-500/30">
-                  <div className="text-5xl font-bold text-white font-mono">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
+                <motion.div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 border border-red-500/30">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-mono">
                     {eventCountdown.days.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Days</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Days</div>
                 </motion.div>
 
-                <motion.div className="glass rounded-xl p-6 border border-red-500/30">
-                  <div className="text-5xl font-bold text-white font-mono">
+                <motion.div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 border border-red-500/30">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-mono">
                     {eventCountdown.hours.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Hours</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Hours</div>
                 </motion.div>
 
-                <motion.div className="glass rounded-xl p-6 border border-red-500/30">
-                  <div className="text-5xl font-bold text-white font-mono">
+                <motion.div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 border border-red-500/30">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-mono">
                     {eventCountdown.minutes.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Minutes</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-widest mt-1 sm:mt-2">Minutes</div>
                 </motion.div>
               </div>
 
               {/* Status indicator */}
               <div className="flex items-center justify-center gap-2">
                 <motion.div
-                  className="w-2 h-2 rounded-full"
+                  className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full"
                   style={{ backgroundColor: '#f20136' }}
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
-                <span className="text-sm text-gray-300">Accepting registrations</span>
+                <span className="text-xs sm:text-sm text-gray-300">Accepting registrations</span>
               </div>
             </div>
           </div>

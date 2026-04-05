@@ -5,9 +5,9 @@ import { BookOpen, Users, Zap, Globe } from 'lucide-react';
 
 export function About() {
   return (
-    <section className="relative w-full py-20 overflow-hidden">
+    <section className="relative w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/3 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-0 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl" />
         
         {/* Robot tech lines */}
         <motion.svg
@@ -42,29 +42,29 @@ export function About() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
           {/* Left - Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-4 sm:space-y-6 lg:space-y-8"
           >
             <div>
-              <div className="inline-block px-4 py-2 bg-cyan-600/20 border border-cyan-500/50 rounded-full text-sm text-cyan-300 mb-4">
+              <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-cyan-600/20 border border-cyan-500/50 rounded-full text-xs sm:text-sm text-cyan-300 mb-3 sm:mb-4">
                 About ICRA Satellite School
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
                 World-Class Education in Robotics
               </h2>
             </div>
 
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
               The ICRA Satellite School is an intensive educational program organized by the IEEE Robotics and Automation Society. It brings together the brightest minds in robotics to share cutting-edge research and practical knowledge.
             </p>
 
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
               Whether you&apos;re a student, researcher, or industry professional, this program offers a unique opportunity to accelerate your career in robotics and automation.
             </p>
 
@@ -73,7 +73,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="grid grid-cols-2 gap-6 pt-4"
+              className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 pt-2 sm:pt-4"
             >
               {[
                 { number: '15+', label: 'Years of Excellence' },
@@ -81,8 +81,8 @@ export function About() {
                 { number: '100+', label: 'Research Partners' },
                 { number: '$5M+', label: 'Industry Support' },
               ].map((stat, index) => (
-                <div key={index} className="space-y-1">
-                  <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+                <div key={index} className="space-y-0.5 sm:space-y-1">
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                     {stat.number}
                   </div>
                   <div className="text-xs text-gray-400">{stat.label}</div>
@@ -97,7 +97,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             {[
               {
@@ -129,15 +129,15 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="glass rounded-lg p-6 border border-white/10 hover:border-red-500/30 transition group"
+                  className="glass rounded-lg p-4 sm:p-6 border border-white/10 hover:border-red-500/30 transition group"
                 >
-                  <div className="flex gap-4">
+                  <div className="flex gap-3 sm:gap-4">
                     <div className="text-red-400 flex-shrink-0 group-hover:scale-110 transition">
-                      <IconComponent size={32} />
+                      <IconComponent size={28} className="sm:w-8 sm:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-gray-400 text-sm">{feature.description}</p>
+                      <h3 className="text-white text-sm sm:text-base font-semibold mb-1 sm:mb-2">{feature.title}</h3>
+                      <p className="text-gray-400 text-xs sm:text-sm">{feature.description}</p>
                     </div>
                   </div>
                 </motion.div>

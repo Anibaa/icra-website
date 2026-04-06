@@ -104,13 +104,13 @@ export function Footer() {
           >
             <h4 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Contact</h4>
             <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-2 sm:mb-3">
-              Email: <a href="mailto:info@icra2026.org" className="text-purple-600 dark:text-purple-400 hover:underline">info@icra2026.org</a>
+              Email: <a href="mailto:icra-tep@ieee.tn" className="text-purple-600 dark:text-purple-400 hover:underline">icra-tep@ieee.tn</a>
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-2 sm:mb-3">
-              Phone: <a href="tel:+1234567890" className="text-purple-600 dark:text-purple-400 hover:underline">+1 (234) 567-890</a>
+              Phone: <a href="tel:+21690552146" className="text-purple-600 dark:text-purple-400 hover:underline">+216 90 552 146</a>
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
-              Location: International Conference Center, Madrid, Spain
+              Location: Tunis, Tunisia
             </p>
           </motion.div>
         </div>

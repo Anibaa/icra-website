@@ -23,7 +23,13 @@ export const metadata: Metadata = {
     siteName: 'ICRA Satellite School 2026',
     images: [
       {
-        url: '/Logos/smred.png',
+        url: '/Logos/white.png',
+        width: 1200,
+        height: 630,
+        alt: 'ICRA 2026 Satellite School Logo',
+      },
+      {
+        url: '/Logos/black.png',
         width: 1200,
         height: 630,
         alt: 'ICRA 2026 Satellite School Logo',
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ICRA 2026 Satellite School | IEEE RAS Tunisia Chapter',
     description: 'Join world-leading roboticists for an intensive 3-day program. June 1-3, 2026 in Tunis, Tunisia.',
-    images: ['/Logos/smred.png'],
+    images: ['/Logos/white.png'],
     creator: '@IEEERAS_Tunisia',
   },
   icons: {

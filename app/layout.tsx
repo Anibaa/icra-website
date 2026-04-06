@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'IEEE RAS Tunisia Chapter' }],
   creator: 'IEEE RAS Tunisia Chapter',
   publisher: 'IEEE RAS Tunisia Chapter',
-  metadataBase: new URL('https://icra-tep.ieee.tn'),
+  metadataBase: new URL('https://icra-website.vercel.app'),
   openGraph: {
     title: 'ICRA 2026 Satellite School | IEEE RAS Tunisia Chapter',
     description: 'Join world-leading roboticists for an intensive 3-day program covering advanced topics in robotics, control systems, and autonomous systems. June 1-3, 2026.',
-    url: 'https://icra-tep.ieee.tn',
+    url: 'https://icra-website.vercel.app',
     siteName: 'ICRA Satellite School 2026',
     images: [
       {

@@ -55,10 +55,10 @@ export function Speakers() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-[1.1] tracking-tight">
             Featured Speakers
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto px-4">
             Learn from the world&apos;s leading robotics researchers and industry pioneers
           </p>
         </motion.div>
@@ -109,7 +109,7 @@ export function Speakers() {
           viewport={{ once: true }}
           className="mt-8 sm:mt-10 text-center"
         >
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-4 sm:mb-5 px-4">Speakers to be announced as we approach the event</p>
+          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4 sm:mb-5 px-4">Speakers to be announced as we approach the event</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

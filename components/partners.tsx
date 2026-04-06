@@ -15,18 +15,18 @@ const partners = [
 
 export function Partners() {
   return (
-    <section id="partners" className="relative w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section id="partners" className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10 sm:mb-12 lg:mb-16"
+          className="text-center mb-8 sm:mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-[1.1] tracking-tight">
             Partners & Sponsors
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto px-4">
             Supported by leading academic institutions and industry leaders
           </p>
         </motion.div>
@@ -60,9 +60,9 @@ export function Partners() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 sm:mt-12 lg:mt-16 text-center"
+          className="mt-8 sm:mt-10 text-center"
         >
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
             Interested in becoming a partner or sponsor? We welcome collaboration from organizations committed to advancing robotics research and education.
           </p>
           <motion.button

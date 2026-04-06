@@ -118,7 +118,7 @@ export function ProgramTimeline() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+          className="mt-8 sm:mt-10 grid grid-cols-3 gap-4 sm:gap-5"
         >
           {[
             {

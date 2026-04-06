@@ -76,7 +76,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="space-y-3"
+            className="grid grid-cols-2 gap-3"
           >
             {[
               {
@@ -111,7 +111,7 @@ export function About() {
                   whileHover={{ scale: 1.02 }}
                   className="glass rounded-lg p-4 border border-gray-200 dark:border-white/10 hover:border-red-500/20 transition-all group"
                 >
-                  <div className="flex gap-3">
+                  <div className="flex flex-col gap-2">
                     <div className="text-red-500 dark:text-red-400 shrink-0 group-hover:scale-105 transition-transform">
                       <IconComponent size={22} />
                     </div>

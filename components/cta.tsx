@@ -41,7 +41,7 @@ export function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-5 sm:my-6"
+            className="grid grid-cols-3 gap-4 my-5 sm:my-6"
           >
             {[
               { icon: Users, text: '10+ Expert Speakers' },

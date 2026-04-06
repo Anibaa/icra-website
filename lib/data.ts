@@ -30,34 +30,39 @@ export const aboutFeatures = [
 // Committee Data
 export const committeeMembers = [
   {
-    name: 'Chair',
-    title: 'Dr. Juan Carlos Arevalo',
-    affiliation: 'University of Madrid',
+    name: 'General Chair',
+    title: 'Yassine Aniba',
+    image: '/committee/yassine-aniba.jpg', // Optional: add image path
   },
   {
-    name: 'Co-Chair',
-    title: 'Dr. Lucia Pallottino',
-    affiliation: 'University of Pisa',
+    name: 'General Chair',
+    title: 'Jinene Ben Said',
+    image: '/committee/jinene-ben-said.jpg', // Optional: add image path
+  },
+  {
+    name: 'General Chair',
+    title: 'Ahmed Aouididi',
+    image: '/committee/ahmed-aouididi.jpg', // Optional: add image path
   },
   {
     name: 'Treasurer',
-    title: 'Dr. Antonio Franchi',
-    affiliation: 'Technical University of Munich',
+    title: 'Mohamed Amine Louati',
+    image: '/committee/mohamed-amine-louati.jpg', // Optional: add image path
   },
   {
-    name: 'Program Committee',
-    title: 'Dr. Marco Dorigo',
-    affiliation: 'Université Libre de Bruxelles',
+    name: 'Technical Committee Chair',
+    title: 'Mohamed Amine Ben Hlel',
+    image: '/committee/mohamed-amine-ben-hlel.jpg', // Optional: add image path
   },
   {
-    name: 'Program Committee',
-    title: 'Dr. Sandra Hirche',
-    affiliation: 'Technical University of Munich',
+    name: 'Social Media Lead',
+    title: 'Wyssem Neila',
+    image: '/committee/wyssem-neila.jpg', // Optional: add image path
   },
   {
-    name: 'Program Committee',
-    title: 'Dr. Kaspar Althoefer',
-    affiliation: 'Queen Mary University',
+    name: 'Branding Lead',
+    title: 'Azizi Hbaili',
+    image: '/committee/azizi-hbaili.jpg', // Optional: add image path
   },
 ];
 

@@ -63,7 +63,7 @@ export function Speakers() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-6xl mx-auto">
           {speakers.map((speaker, index) => (
             <motion.div
               key={index}
@@ -72,31 +72,25 @@ export function Speakers() {
               transition={{ delay: index * 0.04 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="group glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-purple-500/20 transition"
+              className="group glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-purple-500/30 transition text-center"
             >
               <div className="space-y-3">
-                {/* Avatar placeholder */}
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white">
-                  {speaker.name.charAt(0)}
+                {/* Avatar placeholder - centered */}
+                <div className="flex justify-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/30 transition-all duration-300">
+                    {speaker.name.charAt(0)}
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-purple-600 dark:group-hover:from-purple-400 group-hover:to-cyan-600 dark:group-hover:to-cyan-400 transition">
+                <div className="space-y-2">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-purple-600 dark:group-hover:from-purple-400 group-hover:to-cyan-600 dark:group-hover:to-cyan-400 transition leading-tight">
                     {speaker.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 font-medium">{speaker.role}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{speaker.specialty}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500">{speaker.specialty}</p>
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">{speaker.bio}</p>
-
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="w-full px-4 py-2 text-xs font-medium text-gray-900 dark:text-white border border-red-500/30 rounded-lg hover:bg-red-500/10 hover:border-red-400/50 transition"
-                >
-                  Learn More
-                </motion.button>
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{speaker.bio}</p>
               </div>
             </motion.div>
           ))}

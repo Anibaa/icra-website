@@ -44,16 +44,33 @@ export function Footer() {
               Advancing robotics education and research worldwide.
             </p>
             <div className="flex gap-3 sm:gap-4">
-              {['Twitter', 'LinkedIn', 'Facebook'].map((social) => (
-                <motion.a
-                  key={social}
-                  href="#"
-                  whileHover={{ scale: 1.1 }}
-                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm"
-                >
-                  {social}
-                </motion.a>
-              ))}
+              <motion.a
+                href="https://www.instagram.com/ieee.ras.tunisia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm"
+              >
+                Instagram
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/company/ieee-ras-tunisia-chapter/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm"
+              >
+                LinkedIn
+              </motion.a>
+              <motion.a
+                href="https://www.facebook.com/IEEERAS.Tunisia"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm"
+              >
+                Facebook
+              </motion.a>
             </div>
           </motion.div>
 
@@ -66,13 +83,40 @@ export function Footer() {
           >
             <h4 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Quick Links</h4>
             <ul className="space-y-2 sm:space-y-3">
-              {['Home', 'Program', 'Speakers', 'Register'].map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm">
-                    {link}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link href="/" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/program" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm">
+                  Program
+                </Link>
+              </li>
+              <li>
+                <a 
+                  href="#speakers" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('speakers')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm cursor-pointer"
+                >
+                  Speakers
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#committee" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('committee')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm cursor-pointer"
+                >
+                  Committee
+                </a>
+              </li>
             </ul>
           </motion.div>
 
@@ -85,13 +129,50 @@ export function Footer() {
           >
             <h4 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Information</h4>
             <ul className="space-y-2 sm:space-y-3">
-              {['FAQ', 'Contact', 'Privacy Policy', 'Terms'].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm">
-                    {link}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a 
+                  href="#faq" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm cursor-pointer"
+                >
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:icra-tep@ieee.tn" 
+                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm"
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#partners" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm cursor-pointer"
+                >
+                  Partners
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#about" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm cursor-pointer"
+                >
+                  About
+                </a>
+              </li>
             </ul>
           </motion.div>
 
@@ -126,12 +207,30 @@ export function Footer() {
           className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4"
         >
           <p className="text-gray-500 dark:text-gray-500 text-xs sm:text-sm text-center md:text-left">
-            &copy; 2024 ICRA Satellite School. All rights reserved.
+            &copy; 2026 ICRA Satellite School. All rights reserved.
           </p>
           <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500 dark:text-gray-500">
-            <a href="#" className="hover:text-purple-600 dark:hover:text-purple-400 transition">Privacy</a>
-            <a href="#" className="hover:text-purple-600 dark:hover:text-purple-400 transition">Terms</a>
-            <a href="#" className="hover:text-purple-600 dark:hover:text-purple-400 transition">Cookies</a>
+            <a href="mailto:icra-tep@ieee.tn" className="hover:text-purple-600 dark:hover:text-purple-400 transition">Contact</a>
+            <a 
+              href="#about" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-purple-600 dark:hover:text-purple-400 transition cursor-pointer"
+            >
+              About
+            </a>
+            <a 
+              href="#partners" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-purple-600 dark:hover:text-purple-400 transition cursor-pointer"
+            >
+              Partners
+            </a>
           </div>
         </motion.div>
       </div>

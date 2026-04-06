@@ -9,25 +9,68 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'ICRA 2026 Satellite School',
-  description: 'Advanced educational program for robotics and automation professionals',
-  generator: 'v0.app',
+  title: 'ICRA 2026 Satellite School | IEEE RAS Tunisia Chapter',
+  description: 'Join world-leading roboticists for an intensive 3-day program covering advanced topics in robotics, control systems, and autonomous systems. June 1-3, 2026 in Tunis, Tunisia.',
+  keywords: ['ICRA', 'robotics', 'satellite school', 'IEEE RAS', 'Tunisia', 'automation', 'AI', 'machine learning', 'workshops'],
+  authors: [{ name: 'IEEE RAS Tunisia Chapter' }],
+  creator: 'IEEE RAS Tunisia Chapter',
+  publisher: 'IEEE RAS Tunisia Chapter',
+  metadataBase: new URL('https://icra-tep.ieee.tn'),
+  openGraph: {
+    title: 'ICRA 2026 Satellite School | IEEE RAS Tunisia Chapter',
+    description: 'Join world-leading roboticists for an intensive 3-day program covering advanced topics in robotics, control systems, and autonomous systems. June 1-3, 2026.',
+    url: 'https://icra-tep.ieee.tn',
+    siteName: 'ICRA Satellite School 2026',
+    images: [
+      {
+        url: '/Logos/smred.png',
+        width: 1200,
+        height: 630,
+        alt: 'ICRA 2026 Satellite School Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ICRA 2026 Satellite School | IEEE RAS Tunisia Chapter',
+    description: 'Join world-leading roboticists for an intensive 3-day program. June 1-3, 2026 in Tunis, Tunisia.',
+    images: ['/Logos/smred.png'],
+    creator: '@IEEERAS_Tunisia',
+  },
   icons: {
     icon: [
       {
-        url: '/logos/smred.png',
+        url: '/Logos/smred.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/Logos/white.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/logos/smred.png',
+        url: '/Logos/dark.png',
         media: '(prefers-color-scheme: dark)',
       },
-      {
-        url: '/logos/smred.png',
-        type: 'image/svg+xml',
-      },
     ],
-    apple: '/apple-icon.png',
+    apple: '/Logos/smred.png',
+    shortcut: '/Logos/smred.png',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 }
 

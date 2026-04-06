@@ -55,7 +55,7 @@ export function FAQSection() {
   };
 
   return (
-    <section className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
+    <section id="faq" className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>

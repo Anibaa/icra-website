@@ -65,14 +65,24 @@ export function Partners() {
           <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
             Interested in becoming a partner or sponsor? We welcome collaboration from organizations committed to advancing robotics research and education.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ backgroundColor: '#f20136' }}
-            className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base text-white font-semibold hover:shadow-lg transition border border-pink-400/50 brand-red-glow"
-          >
-            Partnership Inquiries
-          </motion.button>
+          <div className="relative group inline-block">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: '#f20136' }}
+              className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base text-white font-semibold transition border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
+              title="Registration opens soon"
+            >
+              Registration Opens Soon
+            </motion.button>
+            {/* Tooltip popup */}
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
+                Coming Soon!
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

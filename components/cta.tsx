@@ -67,20 +67,34 @@ export function CTA() {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-3 justify-center pt-3"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: '#f20136' }}
-              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold hover:shadow-xl transition text-sm border border-pink-400/40 hover:border-pink-300 brand-red-glow"
-            >
-              Register Now
-            </motion.button>
+            <div className="relative group w-full sm:w-auto">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{ backgroundColor: '#f20136' }}
+                className="w-full px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-semibold transition text-sm border border-pink-400/40 hover:border-pink-300 brand-red-glow cursor-not-allowed opacity-90"
+                title="Registration opens soon"
+              >
+                Registration Opens Soon
+              </motion.button>
+              {/* Tooltip popup */}
+              <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
+                  Coming Soon!
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
+                </div>
+              </div>
+            </div>
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 glass rounded-lg text-gray-900 dark:text-white font-semibold border border-red-500/30 hover:border-red-400/50 hover:bg-red-500/10 transition text-sm"
+              onClick={() => {
+                const programSection = document.getElementById('program');
+                programSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 glass rounded-full text-gray-900 dark:text-white font-semibold border border-red-500/30 hover:border-red-400/50 hover:bg-red-500/10 transition text-sm"
             >
-              Early Bird Discount
+              View Program
             </motion.button>
           </motion.div>
 

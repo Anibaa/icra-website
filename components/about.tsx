@@ -68,27 +68,6 @@ export function About() {
               Whether you&apos;re a student, researcher, or industry professional, this program offers a unique opportunity to accelerate your career in robotics and automation.
             </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="grid grid-cols-2 gap-4 pt-4"
-            >
-              {[
-                { number: '15+', label: 'Years Excellence' },
-                { number: '10,000+', label: 'Alumni' },
-                { number: '100+', label: 'Partners' },
-                { number: '$5M+', label: 'Support' },
-              ].map((stat, index) => (
-                <div key={index} className="space-y-1">
-                  <div className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-linear-to-r from-purple-600 dark:from-purple-400 to-cyan-600 dark:to-cyan-400">
-                    {stat.number}
-                  </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Right - Features */}

@@ -90,14 +90,24 @@ export function Navbar() {
                 )}
               </motion.button>
               
-              <motion.button
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ backgroundColor: '#f20136' }}
-                className="hidden sm:block px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-semibold hover:border border-pink-400/50 brand-red-glow"
-              >
-                Register
-              </motion.button>
+              <div className="relative group">
+                <motion.button
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ backgroundColor: '#f20136' }}
+                  className="hidden sm:block px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
+                  title="Registration opens soon"
+                >
+                  Register
+                </motion.button>
+                {/* Tooltip popup */}
+                <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                  <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
+                    Coming Soon!
+                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -129,17 +139,27 @@ export function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
-                <motion.button
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  style={{ backgroundColor: '#f20136' }}
-                  className="w-full px-6 py-2.5 rounded-lg text-white text-sm font-semibold border border-pink-400/50 brand-red-glow"
-                >
-                  Register
-                </motion.button>
+                <div className="relative group">
+                  <motion.button
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navLinks.length * 0.1 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    style={{ backgroundColor: '#f20136' }}
+                    className="w-full px-6 py-2.5 rounded-full text-white text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
+                    title="Registration opens soon"
+                  >
+                    Registration Opens Soon
+                  </motion.button>
+                  {/* Tooltip popup */}
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                    <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
+                      Coming Soon!
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}

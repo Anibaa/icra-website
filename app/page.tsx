@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: 'ICRA Satellite School 2026',
     images: [
       {
-        url: '/Logos/black.png',
+        url: '/Logos/smred.png',
         width: 1200,
         height: 630,
         alt: 'ICRA 2026 Satellite School',

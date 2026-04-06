@@ -45,7 +45,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3 sm:gap-4">
               <motion.a
-                href="https://www.instagram.com/ieee.ras.tunisia/"
+                href="https://www.instagram.com/icrasatellite/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -54,7 +54,7 @@ export function Footer() {
                 Instagram
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/company/ieee-ras-tunisia-chapter/"
+                href="http://linkedin.com/company/icra-satellite-school"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -63,7 +63,7 @@ export function Footer() {
                 LinkedIn
               </motion.a>
               <motion.a
-                href="https://www.facebook.com/IEEERAS.Tunisia"
+                href="https://www.facebook.com/ICRAschool"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}

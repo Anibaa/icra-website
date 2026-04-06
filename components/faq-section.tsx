@@ -10,10 +10,6 @@ const faqs = [
     answer: 'The program is designed for graduate students, researchers, industry professionals, and anyone interested in advancing their knowledge in robotics and automation. Whether you\'re new to the field or an experienced practitioner, our workshops cater to various skill levels.',
   },
   {
-    question: 'What are the prerequisites for attending?',
-    answer: 'Basic knowledge of programming (Python or C++) and fundamental understanding of robotics concepts is recommended. However, we offer sessions for different skill levels, from beginner to advanced. Specific prerequisites are listed for each workshop.',
-  },
-  {
     question: 'Will I receive a certificate of completion?',
     answer: 'Yes! All participants who attend the full program will receive an official certificate of completion from IEEE RAS Tunisia Chapter. This certificate is recognized internationally and can be added to your professional credentials.',
   },
@@ -22,20 +18,8 @@ const faqs = [
     answer: 'Your registration includes access to all workshops and sessions, hands-on lab materials, coffee breaks and lunch for all three days, networking events, course materials and resources, and a certificate of completion. Accommodation is not included.',
   },
   {
-    question: 'Is there an early bird discount?',
-    answer: 'Yes! Early bird registration is available until June 15, 2026, offering a 20% discount on the standard registration fee. Group discounts are also available for teams of 3 or more participants.',
-  },
-  {
-    question: 'Can I attend specific days only?',
-    answer: 'While we recommend attending the full 3-day program for the complete learning experience, single-day registrations are available. However, note that some workshops build upon concepts from previous days.',
-  },
-  {
     question: 'Will the sessions be recorded?',
     answer: 'Selected plenary sessions and keynotes will be recorded and made available to registered participants after the event. However, hands-on workshops are live-only to ensure interactive learning.',
-  },
-  {
-    question: 'What is the cancellation policy?',
-    answer: 'Full refunds are available for cancellations made 30 days before the event. Cancellations made 15-30 days before receive a 50% refund. No refunds are provided for cancellations within 14 days of the event, but you may transfer your registration to another person.',
   },
   {
     question: 'Will there be networking opportunities?',
@@ -43,7 +27,7 @@ const faqs = [
   },
   {
     question: 'What equipment do I need to bring?',
-    answer: 'Please bring your laptop with the required software installed (we\'ll send a detailed setup guide before the event). All robotics hardware and lab equipment will be provided. We recommend bringing a notebook for taking notes.',
+    answer: 'Please bring your laptop with the required software installed (we\'ll send a detailed setup guide before the event). All robotics hardware and lab equipment will be provided.',
   },
 ];
 

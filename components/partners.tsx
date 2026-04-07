@@ -23,10 +23,10 @@ export function Partners() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-[1.1] tracking-tight">
             Partners & Sponsors
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto px-4">
             Supported by leading academic institutions and industry leaders
           </p>
         </motion.div>
@@ -62,17 +62,27 @@ export function Partners() {
           viewport={{ once: true }}
           className="mt-8 sm:mt-10 text-center"
         >
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
+          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
             Interested in becoming a partner or sponsor? We welcome collaboration from organizations committed to advancing robotics research and education.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ backgroundColor: '#f20136' }}
-            className="px-5 sm:px-6 py-2.5 rounded-lg text-sm text-white font-semibold hover:shadow-xl transition border border-pink-400/40 brand-red-glow"
-          >
-            Partnership Inquiries
-          </motion.button>
+          <div className="relative group inline-block">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: '#f20136' }}
+              className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base text-white font-semibold transition border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
+              title="Registration opens soon"
+            >
+              Registration Opens Soon
+            </motion.button>
+            {/* Tooltip popup */}
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
+                Coming Soon!
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

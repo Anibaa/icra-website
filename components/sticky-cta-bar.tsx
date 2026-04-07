@@ -49,19 +49,33 @@ export function StickyCTABar() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 glass rounded-lg text-sm font-medium text-gray-900 dark:text-white border border-red-500/30 hover:border-red-400/60 hover:bg-red-500/10 transition"
+              onClick={() => {
+                const programSection = document.getElementById('program');
+                programSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 glass rounded-full text-sm font-medium text-gray-900 dark:text-white border border-red-500/30 hover:border-red-400/60 hover:bg-red-500/10 transition"
             >
-              Learn More
+              View Program
             </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: '#f20136' }}
-              className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm font-semibold text-white border border-pink-400/50 hover:border-pink-300 brand-red-glow transition"
-              aria-label="Register for ICRA 2026 Satellite School"
-            >
-              Register Now
-            </motion.button>
+            <div className="relative group flex-1 sm:flex-none">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{ backgroundColor: '#f20136' }}
+                className="w-full px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm font-semibold text-white border border-pink-400/50 hover:border-pink-300 brand-red-glow transition cursor-not-allowed opacity-90"
+                aria-label="Register for ICRA 2026 Satellite School"
+                title="Registration opens soon"
+              >
+                Opens Soon
+              </motion.button>
+              {/* Tooltip popup */}
+              <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
+                  Coming Soon!
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

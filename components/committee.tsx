@@ -1,39 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const committeeMembers = [
-  {
-    name: 'Chair',
-    title: 'Dr. Juan Carlos Arevalo',
-    affiliation: 'University of Madrid',
-  },
-  {
-    name: 'Co-Chair',
-    title: 'Dr. Lucia Pallottino',
-    affiliation: 'University of Pisa',
-  },
-  {
-    name: 'Treasurer',
-    title: 'Dr. Antonio Franchi',
-    affiliation: 'Technical University of Munich',
-  },
-  {
-    name: 'Program Committee',
-    title: 'Dr. Marco Dorigo',
-    affiliation: 'Université Libre de Bruxelles',
-  },
-  {
-    name: 'Program Committee',
-    title: 'Dr. Sandra Hirche',
-    affiliation: 'Technical University of Munich',
-  },
-  {
-    name: 'Program Committee',
-    title: 'Dr. Kaspar Althoefer',
-    affiliation: 'Queen Mary University',
-  },
-];
+import Image from 'next/image';
+import { committeeMembers } from '@/lib/data';
 
 export function Committee() {
   return (
@@ -49,30 +18,76 @@ export function Committee() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-[1.1] tracking-tight">
             Organizing Committee
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto px-4">
             Distinguished leaders in robotics research overseeing the program
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-6xl mx-auto">
           {committeeMembers.map((member, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.04 }}
               viewport={{ once: true }}
-              className="glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 text-center hover:border-red-500/20 transition"
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden"
             >
-              <div className="inline-block px-2.5 py-1 bg-red-600/12 border border-red-500/30 rounded-full text-xs font-semibold text-red-700 dark:text-red-300 mb-3 uppercase tracking-wider">
-                {member.name}
-              </div>
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-linear-to-b from-red-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Top colored bar */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-red-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              <div className="relative text-center">
+                {/* Avatar at top center */}
+                <div className="flex justify-center mb-3">
+                  <div className="relative">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-lg group-hover:shadow-2xl group-hover:shadow-red-500/40 transition-all duration-300 overflow-hidden ring-4 ring-gray-100 dark:ring-gray-800 group-hover:ring-red-500/20">
+                      {member.image ? (
+                        <Image
+                          src={member.image}
+                          alt={member.title}
+                          width={80}
+                          height={80}
+                          quality={95}
+                          className="w-full h-full object-cover"
+                          priority={index < 4}
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <span>
+                          {member.title.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
 
-              <h3 className="text-gray-900 dark:text-white font-bold text-sm sm:text-base mb-1">{member.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">{member.affiliation}</p>
+                {/* Content stacked below */}
+                <div className="space-y-2">
+                  {/* Name */}
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white leading-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                    {member.title}
+                  </h3>
+
+                  {/* Role badge */}
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-red-600/10 border border-red-500/25 rounded-full text-xs font-medium text-red-700 dark:text-red-300 uppercase tracking-wider group-hover:bg-red-600/20 group-hover:border-red-500/40 transition-colors">
+                    {member.name}
+                  </div>
+
+                  {/* Organization info */}
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                    IEEE RAS Tunisia
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

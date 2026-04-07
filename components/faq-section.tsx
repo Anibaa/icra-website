@@ -10,10 +10,6 @@ const faqs = [
     answer: 'The program is designed for graduate students, researchers, industry professionals, and anyone interested in advancing their knowledge in robotics and automation. Whether you\'re new to the field or an experienced practitioner, our workshops cater to various skill levels.',
   },
   {
-    question: 'What are the prerequisites for attending?',
-    answer: 'Basic knowledge of programming (Python or C++) and fundamental understanding of robotics concepts is recommended. However, we offer sessions for different skill levels, from beginner to advanced. Specific prerequisites are listed for each workshop.',
-  },
-  {
     question: 'Will I receive a certificate of completion?',
     answer: 'Yes! All participants who attend the full program will receive an official certificate of completion from IEEE RAS Tunisia Chapter. This certificate is recognized internationally and can be added to your professional credentials.',
   },
@@ -22,20 +18,8 @@ const faqs = [
     answer: 'Your registration includes access to all workshops and sessions, hands-on lab materials, coffee breaks and lunch for all three days, networking events, course materials and resources, and a certificate of completion. Accommodation is not included.',
   },
   {
-    question: 'Is there an early bird discount?',
-    answer: 'Yes! Early bird registration is available until June 15, 2026, offering a 20% discount on the standard registration fee. Group discounts are also available for teams of 3 or more participants.',
-  },
-  {
-    question: 'Can I attend specific days only?',
-    answer: 'While we recommend attending the full 3-day program for the complete learning experience, single-day registrations are available. However, note that some workshops build upon concepts from previous days.',
-  },
-  {
     question: 'Will the sessions be recorded?',
     answer: 'Selected plenary sessions and keynotes will be recorded and made available to registered participants after the event. However, hands-on workshops are live-only to ensure interactive learning.',
-  },
-  {
-    question: 'What is the cancellation policy?',
-    answer: 'Full refunds are available for cancellations made 30 days before the event. Cancellations made 15-30 days before receive a 50% refund. No refunds are provided for cancellations within 14 days of the event, but you may transfer your registration to another person.',
   },
   {
     question: 'Will there be networking opportunities?',
@@ -43,7 +27,7 @@ const faqs = [
   },
   {
     question: 'What equipment do I need to bring?',
-    answer: 'Please bring your laptop with the required software installed (we\'ll send a detailed setup guide before the event). All robotics hardware and lab equipment will be provided. We recommend bringing a notebook for taking notes.',
+    answer: 'Please bring your laptop with the required software installed (we\'ll send a detailed setup guide before the event). All robotics hardware and lab equipment will be provided.',
   },
 ];
 
@@ -55,7 +39,7 @@ export function FAQSection() {
   };
 
   return (
-    <section className="relative w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section id="faq" className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>
@@ -65,12 +49,12 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10 sm:mb-12 lg:mb-16"
+          className="text-center mb-8 sm:mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-[1.1] tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto px-4">
             Everything you need to know about the ICRA Satellite School
           </p>
         </motion.div>
@@ -134,12 +118,12 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 sm:mt-12 text-center glass rounded-xl p-6 sm:p-8 border border-gray-200 dark:border-white/10"
+          className="mt-8 sm:mt-10 text-center glass rounded-xl p-6 sm:p-8 border border-gray-200 dark:border-white/10"
         >
           <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
             Still have questions?
           </h3>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Our team is here to help. Reach out and we'll get back to you within 24 hours.
           </p>
           <motion.button

@@ -4,15 +4,6 @@ import { motion } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
 import { ArrowLeft, Clock, MapPin, Users, Video, Coffee, Award, Wrench } from 'lucide-react';
 
-// Generate static params for all days
-export async function generateStaticParams() {
-  return [
-    { day: '1' },
-    { day: '2' },
-    { day: '3' }
-  ];
-}
-
 const programDetails = {
   1: {
     day: 'Day 1',

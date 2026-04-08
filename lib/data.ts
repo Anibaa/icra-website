@@ -72,43 +72,43 @@ export const committeeMembers = [
     image: '/committee/azizi-hbaili.jpg',
   },
   {
-    name: 'TBA',
+    name: 'Maryem Yousfi',
     role: 'Logistics Committee',
     affiliation: 'IEEE ENICarthage SB',
     image: '',
   },
   {
-    name: 'TBA',
+    name: 'Ahmed hihi',
     role: 'Logistics Committee',
     affiliation: 'IEEE INSAT SB',
     image: '',
   },
   {
-    name: 'TBA',
+    name: 'Yessmine Sallemi',
     role: 'Participants Coordinator',
     affiliation: 'IEEE IES Tunisia Section Chapter',
     image: '',
   },
   {
-    name: 'TBA',
+    name: 'Yassine Soussi',
     role: 'Industry & Academic Coordinator',
     affiliation: 'IEEE Tunisia Section',
     image: '',
   },
   {
-    name: 'TBA',
+    name: 'Baha eddine Hammou',
     role: 'Program Committee',
-    affiliation: 'ENSIT',
+    affiliation: 'IEEE ENSIT SB',
     image: '',
   },
   {
-    name: 'TBA',
+    name: 'Mohamed Aziz Ben Slima',
     role: 'Program Committee',
-    affiliation: 'Esprit',
+    affiliation: 'IEEE Esprit SB',
     image: '',
   },
   {
-    name: 'TBA',
+    name: 'Nadine Jellali',
     role: 'Secretary',
     affiliation: 'IEEE Tunisia Section',
     image: '',
@@ -148,13 +148,13 @@ export const partners: Array<{
   name: string;
   category: string;
 }> = [
-  { name: 'IEEE RAS Tunisia Chapter', category: 'Organizing Partner' },
+  { name: 'IEEE RAS Tunisia Chapter', category: 'Host' },
   { name: 'IEEE ENICarthage SB', category: 'Organizing Partner' },
   { name: 'IEEE INSAT SB', category: 'Organizing Partner' },
   { name: 'IEEE IES Tunisia Section Chapter', category: 'Organizing Partner' },
   { name: 'IEEE Tunisia Section', category: 'Organizing Partner' },
-  { name: 'ENSIT', category: 'Organizing Partner' },
-  { name: 'Esprit', category: 'Organizing Partner' },
+  { name: 'IEEE ENSIT SB', category: 'Organizing Partner' },
+  { name: 'IEEE Esprit SB', category: 'Organizing Partner' },
 ];
 
 export const partnersContent = {

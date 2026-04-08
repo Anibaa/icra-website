@@ -2,42 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { BookOpen, Cpu, Zap } from 'lucide-react';
-
-const programDays = [
-  {
-    day: 'Day 1',
-    date: 'June 1',
-    title: 'Opening & ICRA Plenary',
-    sessions: [
-      'Opening Ceremony',
-      'ICRA Plenary Streaming',
-      'Workshop Sessions',
-      'Hands-on Labs',
-    ],
-  },
-  {
-    day: 'Day 2',
-    date: 'June 2',
-    title: 'Workshops & Hands-on',
-    sessions: [
-      'Advanced Control Systems',
-      'Autonomous Navigation',
-      'AI & Machine Learning',
-      'Sensor Fusion & Perception',
-    ],
-  },
-  {
-    day: 'Day 3',
-    date: 'June 3',
-    title: 'Workshops & Closing',
-    sessions: [
-      'Swarm Robotics',
-      'Human-Robot Interaction',
-      'Project Presentations',
-      'Closing Ceremony & Awards',
-    ],
-  },
-];
+import { programDays, programFeatures, programContent } from '@/lib/data-program';
 
 export function ProgramTimeline() {
   return (
@@ -50,10 +15,10 @@ export function ProgramTimeline() {
           className="text-center mb-8 sm:mb-10"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-tight tracking-tight">
-            3-Day Intensive Program
+            {programContent.title}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-4">
-            June 1-3: Expert-led workshops covering robotics fundamentals, hands-on labs, and advanced topics
+            {programContent.description}
           </p>
         </motion.div>
 
@@ -120,24 +85,9 @@ export function ProgramTimeline() {
           viewport={{ once: true }}
           className="mt-8 sm:mt-10 grid grid-cols-3 gap-4 sm:gap-5"
         >
-          {[
-            {
-              icon: BookOpen,
-              title: 'Expert Instructors',
-              description: 'Learn from pioneering researchers and industry leaders',
-            },
-            {
-              icon: Cpu,
-              title: 'Hands-on Labs',
-              description: 'Interactive sessions with real robotics platforms',
-            },
-            {
-              icon: Zap,
-              title: 'Networking',
-              description: 'Connect with professionals from around the world',
-            },
-          ].map((feature, index) => {
-            const IconComponent = feature.icon;
+          {programFeatures.map((feature, index) => {
+            const icons = [BookOpen, Cpu, Zap];
+            const IconComponent = icons[index];
             return (
               <motion.div
                 key={index}

@@ -5,201 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { ArrowLeft, Clock, MapPin, Users, Video, Coffee, Award, Wrench } from 'lucide-react';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-
-const programDetails = {
-  1: {
-    day: 'Day 1',
-    date: 'June 1, 2026',
-    title: 'Opening & ICRA Plenary',
-    description: 'Opening ceremony, plenary sessions streaming from ICRA, and hands-on workshops',
-    sessions: [
-      {
-        time: '09:00 - 10:30',
-        title: 'Opening Ceremony',
-        speaker: 'IEEE RAS Tunisia Chapter',
-        location: 'Main Hall',
-        content: 'Welcome address, introduction to the satellite school program, and overview of the three-day schedule. Meet the organizing committee and keynote speakers.',
-        type: 'ceremony',
-      },
-      {
-        time: '10:30 - 11:00',
-        title: 'Coffee Break & Networking',
-        speaker: '',
-        location: 'Foyer',
-        content: 'Refreshments and networking opportunity with fellow participants and speakers.',
-        type: 'break',
-      },
-      {
-        time: '11:00 - 12:30',
-        title: 'ICRA Plenary Session (Live Streaming)',
-        speaker: 'ICRA 2026 Keynote Speakers',
-        location: 'Main Hall',
-        content: 'Live streaming of plenary sessions from the main ICRA conference. Experience cutting-edge robotics research and innovations from world-renowned experts.',
-        type: 'plenary',
-      },
-      {
-        time: '12:30 - 14:00',
-        title: 'Lunch Break',
-        speaker: '',
-        location: 'Dining Area',
-        content: 'Lunch and informal networking session.',
-        type: 'break',
-      },
-      {
-        time: '14:00 - 15:30',
-        title: 'Workshop Session 1: Robotics Fundamentals',
-        speaker: 'Dr. Ahmed Ben Ali',
-        location: 'Lab 1',
-        content: 'Hands-on workshop covering robotics fundamentals, kinematics, and control systems. Practical exercises with robotic platforms.',
-        type: 'workshop',
-      },
-      {
-        time: '15:30 - 16:00',
-        title: 'Coffee Break',
-        speaker: '',
-        location: 'Foyer',
-        content: 'Afternoon refreshments and networking.',
-        type: 'break',
-      },
-      {
-        time: '16:00 - 17:30',
-        title: 'Hands-on Lab: Programming Robots',
-        speaker: 'Dr. Mariem Belhadj',
-        location: 'Lab 1',
-        content: 'Practical hands-on session programming robotic systems. Work with real hardware and implement basic control algorithms.',
-        type: 'workshop',
-      },
-    ],
-  },
-  2: {
-    day: 'Day 2',
-    date: 'June 2, 2026',
-    title: 'Workshops & Hands-on',
-    description: 'Intensive hands-on workshops with practical robotics applications',
-    sessions: [
-      {
-        time: '09:00 - 10:30',
-        title: 'Workshop: Advanced Control Systems',
-        speaker: 'Prof. Samir Turki',
-        location: 'Lab 1',
-        content: 'Deep dive into advanced control theory and implementation. Learn PID control, state-space methods, and adaptive control techniques.',
-        type: 'workshop',
-      },
-      {
-        time: '10:30 - 11:00',
-        title: 'Coffee Break',
-        speaker: '',
-        location: 'Foyer',
-        content: 'Morning refreshments and networking.',
-        type: 'break',
-      },
-      {
-        time: '11:00 - 12:30',
-        title: 'Hands-on: Autonomous Navigation',
-        speaker: 'Dr. Karim Saleh',
-        location: 'Lab 2',
-        content: 'Practical workshop on autonomous navigation systems. Implement SLAM algorithms and path planning techniques on mobile robots.',
-        type: 'workshop',
-      },
-      {
-        time: '12:30 - 14:00',
-        title: 'Lunch Break',
-        speaker: '',
-        location: 'Dining Area',
-        content: 'Lunch and informal discussions.',
-        type: 'break',
-      },
-      {
-        time: '14:00 - 15:30',
-        title: 'Workshop: AI & Machine Learning for Robotics',
-        speaker: 'Prof. Leila Khouaja',
-        location: 'Lab 1',
-        content: 'Hands-on workshop applying machine learning to robotics. Train neural networks for object detection and implement computer vision algorithms.',
-        type: 'workshop',
-      },
-      {
-        time: '15:30 - 16:00',
-        title: 'Coffee Break',
-        speaker: '',
-        location: 'Foyer',
-        content: 'Afternoon refreshments.',
-        type: 'break',
-      },
-      {
-        time: '16:00 - 17:30',
-        title: 'Hands-on: Sensor Fusion & Perception',
-        speaker: 'Dr. Mohamed Hadj',
-        location: 'Lab 2',
-        content: 'Practical session on sensor integration and data fusion. Work with cameras, LiDAR, and IMU sensors to build robust perception systems.',
-        type: 'workshop',
-      },
-    ],
-  },
-  3: {
-    day: 'Day 3',
-    date: 'June 3, 2026',
-    title: 'Workshops & Closing',
-    description: 'Final workshops, project presentations, and closing ceremony',
-    sessions: [
-      {
-        time: '09:00 - 10:30',
-        title: 'Workshop: Swarm Robotics',
-        speaker: 'Dr. Fatima Al-Rashid',
-        location: 'Lab 1',
-        content: 'Hands-on workshop on multi-robot coordination and swarm intelligence. Program collaborative behaviors and emergent systems.',
-        type: 'workshop',
-      },
-      {
-        time: '10:30 - 11:00',
-        title: 'Coffee Break',
-        speaker: '',
-        location: 'Foyer',
-        content: 'Morning refreshments and final networking.',
-        type: 'break',
-      },
-      {
-        time: '11:00 - 12:30',
-        title: 'Hands-on: Human-Robot Interaction',
-        speaker: 'Prof. Noureddine Slama',
-        location: 'Lab 2',
-        content: 'Practical workshop on designing intuitive human-robot interfaces. Implement gesture recognition and natural language processing.',
-        type: 'workshop',
-      },
-      {
-        time: '12:30 - 14:00',
-        title: 'Lunch Break',
-        speaker: '',
-        location: 'Dining Area',
-        content: 'Final lunch and networking opportunity.',
-        type: 'break',
-      },
-      {
-        time: '14:00 - 15:30',
-        title: 'Project Presentations & Demonstrations',
-        speaker: 'Participants',
-        location: 'Main Hall',
-        content: 'Showcase your work from the three-day program. Present projects, demonstrate implementations, and receive feedback from experts.',
-        type: 'presentation',
-      },
-      {
-        time: '15:30 - 16:00',
-        title: 'Coffee Break',
-        speaker: '',
-        location: 'Foyer',
-        content: 'Final refreshments before closing ceremony.',
-        type: 'break',
-      },
-      {
-        time: '16:00 - 17:30',
-        title: 'Closing Ceremony & Awards',
-        speaker: 'IEEE RAS Tunisia Chapter',
-        location: 'Main Hall',
-        content: 'Closing remarks, certificate distribution, awards for best projects, and final networking session. Celebrate achievements and build lasting connections.',
-        type: 'ceremony',
-      },
-    ],
-  },
-};
+import { detailedProgram, venueInfo } from '@/lib/data-program';
 
 const getSessionIcon = (type?: string) => {
   switch (type) {
@@ -239,7 +45,7 @@ export default function ProgramDetail() {
   const router = useRouter();
   const params = useParams();
   const dayNum = parseInt(params.day as string) || 1;
-  const detail = programDetails[dayNum as keyof typeof programDetails] || programDetails[1];
+  const detail = detailedProgram[dayNum as keyof typeof detailedProgram] || detailedProgram[1];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
@@ -275,14 +81,14 @@ export default function ProgramDetail() {
                 <Users size={24} className="text-red-600 dark:text-red-400" />
                 <div>
                   <p className="text-xs text-gray-600 dark:text-gray-400">ORGANIZED BY</p>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white">IEEE RAS Tunisia Chapter</p>
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">{venueInfo.organizer}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 glass rounded-lg p-4 border border-gray-200 dark:border-white/10">
                 <MapPin size={24} className="text-red-600 dark:text-red-400" />
                 <div>
                   <p className="text-xs text-gray-600 dark:text-gray-400">LOCATION</p>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white">Tunis Conference Center</p>
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">{venueInfo.name}</p>
                 </div>
               </div>
             </div>
@@ -360,14 +166,24 @@ export default function ProgramDetail() {
             <p className="text-gray-700 dark:text-gray-400 text-lg max-w-2xl mx-auto">
               Register now for {detail.day} and gain access to world-class training in robotics and automation.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: '#f20136' }}
-              className="px-8 py-4 rounded-lg text-white font-semibold border border-pink-400/50 hover:border-pink-300 brand-red-glow transition"
-            >
-              Register for {detail.day}
-            </motion.button>
+            <div className="relative group inline-block">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{ backgroundColor: '#f20136' }}
+                className="px-8 py-4 rounded-lg text-white font-semibold border border-pink-400/50 hover:border-pink-300 brand-red-glow transition cursor-not-allowed opacity-90"
+                title="Registration opens soon"
+              >
+                Registration Opens Soon
+              </motion.button>
+              {/* Tooltip popup */}
+              <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
+                  Coming Soon!
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

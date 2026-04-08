@@ -218,7 +218,7 @@ export function CountdownTimer() {
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
-                <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">Accepting registrations</span>
+                <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">Registration Opens Soon</span>
               </div>
             </div>
           </div>

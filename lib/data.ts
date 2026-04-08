@@ -131,7 +131,7 @@ export const ctaFeatures = [
 
 export const ctaContent = {
   title: 'Ready to Transform Your Robotics Career?',
-  description: 'Join 500+ professionals for an intensive five-day program with world-leading roboticists. Early bird registration is now open with special discounts.',
+  description: 'Join 100+ professionals for an intensive three-day program with world-leading roboticists. Early bird registration is now open with special discounts.',
   registrationDeadline: 'Limited seats available. Early registration ends June 15, 2026.',
 };
 

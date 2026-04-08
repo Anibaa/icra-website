@@ -126,13 +126,14 @@ export function FAQSection() {
           <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Our team is here to help. Reach out and we'll get back to you within 24 hours.
           </p>
-          <motion.button
+          <motion.a
+            href="mailto:icra-tep@ieee.tn"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 glass rounded-lg text-sm font-medium text-gray-900 dark:text-white border border-red-500/30 hover:border-red-400/60 hover:bg-red-500/10 transition"
+            className="inline-block px-6 py-2.5 glass rounded-lg text-sm font-medium text-gray-900 dark:text-white border border-red-500/30 hover:border-red-400/60 hover:bg-red-500/10 transition"
           >
             Contact Support
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

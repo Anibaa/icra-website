@@ -35,19 +35,19 @@ export function Partners() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
         >
           {partners.map((partner, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
+              transition={{ delay: index * 0.04 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="glass rounded-lg p-4 sm:p-6 border border-gray-200 dark:border-white/10 hover:border-cyan-500/30 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
+              className="glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-cyan-500/20 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
             >
-              <div className="space-y-1.5 sm:space-y-2">
+              <div className="space-y-1.5">
                 <h3 className="font-bold text-sm sm:text-base text-gray-900 dark:text-white">{partner.name}</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider">{partner.category}</p>
               </div>

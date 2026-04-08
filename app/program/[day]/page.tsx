@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
 import { ArrowLeft, Clock, MapPin, Users, Video, Coffee, Award, Wrench } from 'lucide-react';
+import { Navbar } from '@/components/navbar';
+import { Footer } from '@/components/footer';
 
 const programDetails = {
   1: {
@@ -219,17 +221,17 @@ const getSessionIcon = (type?: string) => {
 const getSessionColor = (type?: string) => {
   switch (type) {
     case 'ceremony':
-      return 'text-yellow-400';
+      return 'text-yellow-500 dark:text-yellow-400';
     case 'plenary':
-      return 'text-purple-400';
+      return 'text-purple-600 dark:text-purple-400';
     case 'workshop':
-      return 'text-cyan-400';
+      return 'text-cyan-600 dark:text-cyan-400';
     case 'break':
-      return 'text-orange-400';
+      return 'text-orange-500 dark:text-orange-400';
     case 'presentation':
-      return 'text-green-400';
+      return 'text-green-600 dark:text-green-400';
     default:
-      return 'text-gray-400';
+      return 'text-gray-600 dark:text-gray-400';
   }
 };
 
@@ -240,51 +242,47 @@ export default function ProgramDetail() {
   const detail = programDetails[dayNum as keyof typeof programDetails] || programDetails[1];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header with back button */}
-      <div className="sticky top-0 z-50 glass border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
-          <motion.button
-            onClick={() => router.back()}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-2 hover:bg-white/10 rounded-lg transition"
-          >
-            <ArrowLeft size={24} className="text-white" />
-          </motion.button>
-          <div>
-            <p className="text-sm text-gray-400">{detail.date}</p>
-            <h1 className="text-2xl font-bold text-white">{detail.day}</h1>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-white dark:bg-gray-950">
+      <Navbar />
 
       {/* Hero section */}
-      <section className="py-20 border-b border-white/10">
+      <section className="pt-32 pb-20 border-b border-gray-200 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
+            {/* Back button */}
+            <motion.button
+              onClick={() => router.push('/')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition text-gray-900 dark:text-white"
+            >
+              <ArrowLeft size={20} />
+              <span>Back to Home</span>
+            </motion.button>
+
             <div>
-              <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">{detail.title}</h2>
-              <p className="text-xl text-gray-400">{detail.description}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{detail.date}</p>
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">{detail.title}</h1>
+              <p className="text-xl text-gray-700 dark:text-gray-400">{detail.description}</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <div className="flex items-center gap-3 glass rounded-lg p-4">
-                <Users size={24} className="text-red-400" />
+              <div className="flex items-center gap-3 glass rounded-lg p-4 border border-gray-200 dark:border-white/10">
+                <Users size={24} className="text-red-600 dark:text-red-400" />
                 <div>
-                  <p className="text-xs text-gray-400">ORGANIZED BY</p>
-                  <p className="text-sm font-semibold text-white">IEEE RAS Tunisia Chapter</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">ORGANIZED BY</p>
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">IEEE RAS Tunisia Chapter</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 glass rounded-lg p-4">
-                <MapPin size={24} className="text-red-400" />
+              <div className="flex items-center gap-3 glass rounded-lg p-4 border border-gray-200 dark:border-white/10">
+                <MapPin size={24} className="text-red-600 dark:text-red-400" />
                 <div>
-                  <p className="text-xs text-gray-400">LOCATION</p>
-                  <p className="text-sm font-semibold text-white">Tunis Conference Center</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">LOCATION</p>
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">Tunis Conference Center</p>
                 </div>
               </div>
             </div>
@@ -295,7 +293,7 @@ export default function ProgramDetail() {
       {/* Detailed Schedule */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-white mb-12">Session Schedule</h3>
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Session Schedule</h3>
 
           <div className="space-y-6">
             {detail.sessions.map((session, index) => {
@@ -310,19 +308,19 @@ export default function ProgramDetail() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`glass rounded-xl p-8 border border-white/10 hover:border-red-500/30 transition ${isBreak ? 'bg-white/5' : ''}`}
+                  className={`glass rounded-xl p-8 border border-gray-200 dark:border-white/10 hover:border-red-500/30 transition ${isBreak ? 'bg-gray-50 dark:bg-white/5' : ''}`}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                     {/* Time */}
                     <div className="md:col-span-2">
                       <div className="flex items-center gap-2 mb-4">
-                        <Clock size={20} className="text-red-400" />
-                        <span className="text-sm font-mono font-bold text-white">{session.time}</span>
+                        <Clock size={20} className="text-red-600 dark:text-red-400" />
+                        <span className="text-sm font-mono font-bold text-gray-900 dark:text-white">{session.time}</span>
                       </div>
                       {session.location && (
                         <div className="flex items-center gap-2">
-                          <MapPin size={16} className="text-gray-500" />
-                          <span className="text-xs text-gray-400">{session.location}</span>
+                          <MapPin size={16} className="text-gray-500 dark:text-gray-500" />
+                          <span className="text-xs text-gray-600 dark:text-gray-400">{session.location}</span>
                         </div>
                       )}
                     </div>
@@ -331,15 +329,15 @@ export default function ProgramDetail() {
                     <div className="md:col-span-10">
                       <div className="flex items-center gap-3 mb-3">
                         <SessionIcon size={20} className={iconColor} />
-                        <h4 className="text-xl font-bold text-white">{session.title}</h4>
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-white">{session.title}</h4>
                       </div>
                       {session.speaker && (
                         <div className="flex items-center gap-2 mb-4">
-                          <Users size={16} className="text-gray-400" />
-                          <span className="text-sm text-gray-400">{session.speaker}</span>
+                          <Users size={16} className="text-gray-500 dark:text-gray-400" />
+                          <span className="text-sm text-gray-600 dark:text-gray-400">{session.speaker}</span>
                         </div>
                       )}
-                      <p className="text-gray-300">{session.content}</p>
+                      <p className="text-gray-700 dark:text-gray-300">{session.content}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -350,7 +348,7 @@ export default function ProgramDetail() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 border-t border-white/10">
+      <section className="py-20 border-t border-gray-200 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -358,8 +356,8 @@ export default function ProgramDetail() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-3xl font-bold text-white">Ready to Join Us?</h3>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white">Ready to Join Us?</h3>
+            <p className="text-gray-700 dark:text-gray-400 text-lg max-w-2xl mx-auto">
               Register now for {detail.day} and gain access to world-class training in robotics and automation.
             </p>
             <motion.button
@@ -375,9 +373,9 @@ export default function ProgramDetail() {
       </section>
 
       {/* Navigation to other days */}
-      <section className="py-20 border-t border-white/10">
+      <section className="py-20 border-t border-gray-200 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-2xl font-bold text-white mb-8">Other Days</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Other Days</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3].map((day) => (
               day !== dayNum && (
@@ -386,17 +384,19 @@ export default function ProgramDetail() {
                   onClick={() => router.push(`/program/${day}`)}
                   whileHover={{ y: -4, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="glass rounded-xl p-6 border border-white/10 hover:border-red-500/50 transition text-left"
+                  className="glass rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:border-red-500/50 transition text-left"
                 >
-                  <p className="text-sm text-gray-400 mb-2">View Program</p>
-                  <h4 className="text-xl font-bold text-white mb-1">Day {day}</h4>
-                  <p className="text-sm text-gray-300">June {day}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">View Program</p>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">Day {day}</h4>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">June {day}</p>
                 </motion.button>
               )
             ))}
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

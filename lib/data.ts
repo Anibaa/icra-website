@@ -30,39 +30,88 @@ export const aboutFeatures = [
 // Committee Data
 export const committeeMembers = [
   {
-    name: 'General Chair',
-    title: 'Yassine Aniba',
-    image: '/committee/yassine-aniba.jpg', // Optional: add image path
+    name: 'Yassine Aniba',
+    role: 'General Chair',
+    affiliation: 'IEEE RAS Tunisia Chapter',
+    image: '/committee/yassine-aniba.jpg',
   },
   {
-    name: 'General Chair',
-    title: 'Jinene Ben Said',
-    image: '/committee/jinene-ben-said.jpg', // Optional: add image path
+    name: 'Jinene Ben Said',
+    role: 'General Chair',
+    affiliation: 'IEEE RAS Tunisia Chapter',
+    image: '/committee/jinene-ben-said.jpg',
   },
   {
-    name: 'General Chair',
-    title: 'Ahmed Aouididi',
-    image: '/committee/ahmed-aouididi.jpg', // Optional: add image path
+    name: 'Ahmed Aouididi',
+    role: 'General Chair',
+    affiliation: 'IEEE RAS Tunisia Chapter',
+    image: '/committee/ahmed-aouididi.jpg',
   },
   {
-    name: 'Treasurer',
-    title: 'Mohamed Amine Louati',
-    image: '/committee/mohamed-amine-louati.jpg', // Optional: add image path
+    name: 'Mohamed Amine Louati',
+    role: 'Treasurer',
+    affiliation: 'IEEE RAS Tunisia Chapter',
+    image: '/committee/mohamed-amine-louati.jpg',
   },
   {
-    name: 'Technical Committee Chair',
-    title: 'Mohamed Amine Ben Hlel',
-    image: '/committee/mohamed-amine-ben-hlel.jpg', // Optional: add image path
+    name: 'Mohamed Amine Ben Hlel',
+    role: 'Technical Committee Chair',
+    affiliation: 'IEEE RAS Tunisia Chapter',
+    image: '/committee/mohamed-amine-ben-hlel.jpg',
   },
   {
-    name: 'Social Media Lead',
-    title: 'Wyssem Neila',
-    image: '/committee/wyssem-neila.jpg', // Optional: add image path
+    name: 'Wyssem Neila',
+    role: 'Social Media Lead',
+    affiliation: 'IEEE RAS Tunisia Chapter',
+    image: '/committee/wyssem-neila.jpg',
   },
   {
-    name: 'Branding Lead',
-    title: 'Azizi Hbaili',
-    image: '/committee/azizi-hbaili.jpg', // Optional: add image path
+    name: 'Azizi Hbaili',
+    role: 'Branding Lead',
+    affiliation: 'IEEE RAS Tunisia Chapter',
+    image: '/committee/azizi-hbaili.jpg',
+  },
+  {
+    name: 'TBA',
+    role: 'Logistics Committee',
+    affiliation: 'IEEE ENICarthage SB',
+    image: '',
+  },
+  {
+    name: 'TBA',
+    role: 'Logistics Committee',
+    affiliation: 'IEEE INSAT SB',
+    image: '',
+  },
+  {
+    name: 'TBA',
+    role: 'Participants Coordinator',
+    affiliation: 'IEEE IES Tunisia Section Chapter',
+    image: '',
+  },
+  {
+    name: 'TBA',
+    role: 'Industry & Academic Coordinator',
+    affiliation: 'IEEE Tunisia Section',
+    image: '',
+  },
+  {
+    name: 'TBA',
+    role: 'Program Committee',
+    affiliation: 'ENSIT',
+    image: '',
+  },
+  {
+    name: 'TBA',
+    role: 'Program Committee',
+    affiliation: 'Esprit',
+    image: '',
+  },
+  {
+    name: 'TBA',
+    role: 'Secretary',
+    affiliation: 'IEEE Tunisia Section',
+    image: '',
   },
 ];
 
@@ -87,55 +136,25 @@ export const ctaContent = {
 };
 
 // Speakers Data
-export const speakers = [
-  {
-    name: 'Dr. Daniela Rus',
-    role: 'MIT CSAIL Director',
-    specialty: 'Autonomous Systems',
-    bio: 'Leading researcher in robotics and AI',
-  },
-  {
-    name: 'Dr. Stefan Schaal',
-    role: 'USC Professor',
-    specialty: 'Robot Learning',
-    bio: 'Pioneer in humanoid robotics',
-  },
-  {
-    name: 'Dr. Anibal Ollero',
-    role: 'University of Seville',
-    specialty: 'Aerial Robotics',
-    bio: 'Expert in aerial and multi-robot systems',
-  },
-  {
-    name: 'Dr. Takeo Kanade',
-    role: 'CMU Robotics Professor',
-    specialty: 'Computer Vision',
-    bio: 'Founder of CMU Robotics Institute',
-  },
-  {
-    name: 'Dr. Oussama Khatib',
-    role: 'Stanford Professor',
-    specialty: 'Human-Robot Interaction',
-    bio: 'Leader in collaborative robotics',
-  },
-  {
-    name: 'Dr. Jitendra Malik',
-    role: 'UC Berkeley',
-    specialty: 'Perception & Learning',
-    bio: 'Computer vision and AI researcher',
-  },
-];
+export const speakers: Array<{
+  name: string;
+  role: string;
+  specialty: string;
+  bio: string;
+}> = [];
 
 // Partners Data
-export const partners = [
-  { name: 'IEEE RAS', category: 'Organizing Partner' },
-  { name: 'MIT CSAIL', category: 'Academic Partner' },
-  { name: 'Stanford Robotics', category: 'Academic Partner' },
-  { name: 'CMU RI', category: 'Academic Partner' },
-  { name: 'Boston Dynamics', category: 'Industry Partner' },
-  { name: 'KUKA Robotics', category: 'Industry Partner' },
-  { name: 'ABB Robotics', category: 'Sponsor' },
-  { name: 'Universal Robots', category: 'Sponsor' },
+export const partners: Array<{
+  name: string;
+  category: string;
+}> = [
+  { name: 'IEEE RAS Tunisia Chapter', category: 'Organizing Partner' },
+  { name: 'IEEE ENICarthage SB', category: 'Organizing Partner' },
+  { name: 'IEEE INSAT SB', category: 'Organizing Partner' },
+  { name: 'IEEE IES Tunisia Section Chapter', category: 'Organizing Partner' },
+  { name: 'IEEE Tunisia Section', category: 'Organizing Partner' },
+  { name: 'ENSIT', category: 'Organizing Partner' },
+  { name: 'Esprit', category: 'Organizing Partner' },
 ];
 
 export const partnersContent = {

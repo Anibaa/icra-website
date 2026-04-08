@@ -1,45 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const speakers = [
-  {
-    name: 'Dr. Daniela Rus',
-    role: 'MIT CSAIL Director',
-    specialty: 'Autonomous Systems',
-    bio: 'Leading researcher in robotics and AI',
-  },
-  {
-    name: 'Dr. Stefan Schaal',
-    role: 'USC Professor',
-    specialty: 'Robot Learning',
-    bio: 'Pioneer in humanoid robotics',
-  },
-  {
-    name: 'Dr. Anibal Ollero',
-    role: 'University of Seville',
-    specialty: 'Aerial Robotics',
-    bio: 'Expert in aerial and multi-robot systems',
-  },
-  {
-    name: 'Dr. Takeo Kanade',
-    role: 'CMU Robotics Professor',
-    specialty: 'Computer Vision',
-    bio: 'Founder of CMU Robotics Institute',
-  },
-  {
-    name: 'Dr. Oussama Khatib',
-    role: 'Stanford Professor',
-    specialty: 'Human-Robot Interaction',
-    bio: 'Leader in collaborative robotics',
-  },
-  {
-    name: 'Dr. Jitendra Malik',
-    role: 'UC Berkeley',
-    specialty: 'Perception & Learning',
-    bio: 'Computer vision and AI researcher',
-  },
-];
+import { speakers } from '@/lib/data';
 
 export function Speakers() {
   return (
@@ -63,38 +25,59 @@ export function Speakers() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-6xl mx-auto">
-          {speakers.map((speaker, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.04 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -4 }}
-              className="group glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-purple-500/30 transition text-center"
-            >
-              <div className="space-y-3">
-                {/* Avatar placeholder - centered */}
-                <div className="flex justify-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/30 transition-all duration-300">
-                    {speaker.name.charAt(0)}
+        {speakers.length === 0 ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center py-12"
+          >
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-purple-600/10 mb-4">
+              <svg className="w-10 h-10 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Will be announced soon
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              Speakers will be revealed as we approach the event
+            </p>
+          </motion.div>
+        ) : (
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-6xl mx-auto">
+            {speakers.map((speaker, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.04 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -4 }}
+                className="group glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-purple-500/30 transition text-center"
+              >
+                <div className="space-y-3">
+                  {/* Avatar placeholder - centered */}
+                  <div className="flex justify-center">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/30 transition-all duration-300">
+                      {speaker.name.charAt(0)}
+                    </div>
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-purple-600 dark:group-hover:from-purple-400 group-hover:to-cyan-600 dark:group-hover:to-cyan-400 transition leading-tight">
-                    {speaker.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 font-medium">{speaker.role}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500">{speaker.specialty}</p>
-                </div>
+                  <div className="space-y-2">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-purple-600 dark:group-hover:from-purple-400 group-hover:to-cyan-600 dark:group-hover:to-cyan-400 transition leading-tight">
+                      {speaker.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 font-medium">{speaker.role}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-500">{speaker.specialty}</p>
+                  </div>
 
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{speaker.bio}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                  <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{speaker.bio}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
         {/* CTA */}
         <motion.div
@@ -103,7 +86,9 @@ export function Speakers() {
           viewport={{ once: true }}
           className="mt-8 sm:mt-10 text-center"
         >
-          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4 sm:mb-5 px-4">Speakers to be announced as we approach the event</p>
+          <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4 sm:mb-5 px-4">
+            {speakers.length === 0 ? 'Stay tuned for speaker announcements' : 'More speakers to be announced as we approach the event'}
+          </p>
           <div className="relative group inline-block">
             <motion.button
               whileHover={{ scale: 1.05 }}

@@ -1,17 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const partners = [
-  { name: 'IEEE RAS', category: 'Organizing Partner' },
-  { name: 'MIT CSAIL', category: 'Academic Partner' },
-  { name: 'Stanford Robotics', category: 'Academic Partner' },
-  { name: 'CMU RI', category: 'Academic Partner' },
-  { name: 'Boston Dynamics', category: 'Industry Partner' },
-  { name: 'KUKA Robotics', category: 'Industry Partner' },
-  { name: 'ABB Robotics', category: 'Sponsor' },
-  { name: 'Universal Robots', category: 'Sponsor' },
-];
+import { partners, partnersContent } from '@/lib/data';
 
 export function Partners() {
   return (
@@ -24,36 +14,57 @@ export function Partners() {
           className="text-center mb-8 sm:mb-10"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-[1.1] tracking-tight">
-            Partners & Sponsors
+            {partnersContent.title}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto px-4">
-            Supported by leading academic institutions and industry leaders
+            {partnersContent.description}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
-        >
-          {partners.map((partner, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.04 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -4 }}
-              className="glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-cyan-500/20 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
-            >
-              <div className="space-y-1.5">
-                <h3 className="font-bold text-sm sm:text-base text-gray-900 dark:text-white">{partner.name}</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider">{partner.category}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        {partners.length === 0 ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center py-12"
+          >
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-cyan-600/10 mb-4">
+              <svg className="w-10 h-10 text-cyan-600 dark:text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Will be announced soon
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              Partners and sponsors will be revealed as we approach the event
+            </p>
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
+          >
+            {partners.map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.04 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -4 }}
+                className="glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-cyan-500/20 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
+              >
+                <div className="space-y-1.5">
+                  <h3 className="font-bold text-sm sm:text-base text-gray-900 dark:text-white">{partner.name}</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider">{partner.category}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
 
         {/* Partnership Info */}
         <motion.div
@@ -63,7 +74,7 @@ export function Partners() {
           className="mt-8 sm:mt-10 text-center"
         >
           <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
-            Interested in becoming a partner or sponsor? We welcome collaboration from organizations committed to advancing robotics research and education.
+            {partnersContent.callToAction}
           </p>
           <div className="relative group inline-block">
             <motion.button

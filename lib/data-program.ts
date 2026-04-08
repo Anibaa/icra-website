@@ -1,5 +1,8 @@
 // Program-related data for landing page and detailed program pages
 
+// Program availability flag - set to true when detailed program is ready
+export const isProgramDetailsAvailable = false;
+
 // Program Session Interface
 export interface ProgramSession {
   time: string;
@@ -248,34 +251,34 @@ export const programDays = [
   {
     day: 'Day 1',
     date: 'June 1',
-    title: 'Opening & ICRA Plenary',
+    title: 'Opening & DL Session',
     sessions: [
       'Opening Ceremony',
       'ICRA Plenary Streaming',
-      'Workshop Sessions',
-      'Hands-on Labs',
+      'DL Session',
+      'Poster Session',
     ],
   },
   {
     day: 'Day 2',
     date: 'June 2',
-    title: 'Workshops & Hands-on',
+    title: 'Hands-on Workshops',
     sessions: [
-      'Advanced Control Systems',
-      'Autonomous Navigation',
-      'AI & Machine Learning',
-      'Sensor Fusion & Perception',
+      'Hands-on Workshops',
+      'ICRA Plenary Streaming',
+      'Practical Labs',
+      'Interactive Sessions',
     ],
   },
   {
     day: 'Day 3',
     date: 'June 3',
-    title: 'Workshops & Closing',
+    title: 'Closing & Awards',
     sessions: [
-      'Swarm Robotics',
-      'Human-Robot Interaction',
-      'Project Presentations',
-      'Closing Ceremony & Awards',
+      'DL Session',
+      'ICRA Plenary Streaming',
+      'Award Ceremony',
+      'Closing Ceremony',
     ],
   },
 ];
@@ -299,7 +302,7 @@ export const programFeatures = [
 // Program Content (for landing page)
 export const programContent = {
   title: '3-Day Intensive Program',
-  description: 'June 1-3: Expert-led workshops covering robotics fundamentals, hands-on labs, and advanced topics',
+  description: 'June 1-3: ICRA plenary streaming, deep learning sessions, hands-on workshops, and networking opportunities',
 };
 
 // What to Expect Section (for program overview page)

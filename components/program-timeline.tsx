@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { BookOpen, Cpu, Zap } from 'lucide-react';
-import { programDays, programFeatures, programContent } from '@/lib/data-program';
+import { programDays, programFeatures, programContent, isProgramDetailsAvailable } from '@/lib/data-program';
 
 export function ProgramTimeline() {
   return (
@@ -65,18 +65,37 @@ export function ProgramTimeline() {
                   </ul>
                 </div>
 
-                <motion.button
-                  onClick={() => window.location.href = `/program/${index + 1}`}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="w-full mt-3 px-4 py-2 text-xs font-medium text-gray-900 dark:text-white border border-red-500/30 rounded-lg hover:bg-red-500/10 hover:border-red-400/50 transition cursor-pointer"
-                >
-                  View Details
-                </motion.button>
+                {isProgramDetailsAvailable && (
+                  <motion.button
+                    onClick={() => window.location.href = `/program/${index + 1}`}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="w-full mt-3 px-4 py-2 text-xs font-medium text-gray-900 dark:text-white border border-red-500/30 rounded-lg hover:bg-red-500/10 hover:border-red-400/50 transition cursor-pointer"
+                  >
+                    View Details
+                  </motion.button>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Program Coming Soon Notice - only show when details are not available */}
+        {!isProgramDetailsAvailable && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-600/10 border border-cyan-500/25 text-sm text-cyan-700 dark:text-cyan-300">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Detailed program will be shared soon</span>
+            </div>
+          </motion.div>
+        )}
 
         {/* Additional info section */}
         <motion.div

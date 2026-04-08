@@ -17,7 +17,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: '/program', label: 'Program' },
+    { href: '/#program', label: 'Program' },
     { href: '#speakers', label: 'Speakers' },
     { href: '#committee', label: 'Committee' },
     { href: '#partners', label: 'Partners' },

@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
 import { ArrowLeft, Clock, MapPin, Users, Video, Coffee, Award, Wrench } from 'lucide-react';
+import { IEEEMetaNav } from '@/components/ieee-meta-nav';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { IEEEFooter } from '@/components/ieee-footer';
 import { detailedProgram, venueInfo } from '@/lib/data-program';
 
 const getSessionIcon = (type?: string) => {
@@ -49,10 +51,11 @@ export default function ProgramDetail() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
+      <IEEEMetaNav />
       <Navbar />
 
       {/* Hero section */}
-      <section className="pt-32 pb-20 border-b border-gray-200 dark:border-white/10">
+      <section className="pt-40 pb-20 border-b border-gray-200 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -213,6 +216,7 @@ export default function ProgramDetail() {
       </section>
 
       <Footer />
+      <IEEEFooter />
     </div>
   );
 }

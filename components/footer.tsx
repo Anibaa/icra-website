@@ -17,13 +17,13 @@ export function Footer() {
   return (
     <footer className="relative w-full border-t border-gray-300 dark:border-white/10 bg-gray-50/50 dark:bg-background/50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-10 lg:mb-12">
-          {/* Brand */}
+        <div className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-10 lg:mb-12">
+          {/* Brand - Full width on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="col-span-1"
+            className="col-span-3 sm:col-span-1"
           >
             <Link href="/" className="flex items-center mb-3 sm:mb-4">
               {mounted && (
@@ -80,6 +80,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            className="col-span-1"
           >
             <h4 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Quick Links</h4>
             <ul className="space-y-2 sm:space-y-3">
@@ -126,6 +127,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
+            className="col-span-1"
           >
             <h4 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Information</h4>
             <ul className="space-y-2 sm:space-y-3">
@@ -176,12 +178,13 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact */}
+          {/* Contact - Third column on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
+            className="col-span-1"
           >
             <h4 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Contact</h4>
             <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-2 sm:mb-3">

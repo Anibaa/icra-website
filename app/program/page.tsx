@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Calendar, Clock, ArrowRight, Video, Users, Coffee, Award } from 'lucide-react';
+import { IEEEMetaNav } from '@/components/ieee-meta-nav';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { IEEEFooter } from '@/components/ieee-footer';
 
 const programDays = [
   {
@@ -41,10 +43,11 @@ export default function ProgramPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <IEEEMetaNav />
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-40 pb-20 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
@@ -190,6 +193,7 @@ export default function ProgramPage() {
       </section>
 
       <Footer />
+      <IEEEFooter />
     </div>
   );
 }

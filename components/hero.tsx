@@ -15,7 +15,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen pt-16 sm:pt-20 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen pt-24 sm:pt-28 md:pt-32 flex items-center justify-center overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 bg-purple-600/15 rounded-full blur-3xl" />

@@ -147,10 +147,10 @@ export const speakers: Array<{
 export const partners: Array<{
   name: string;
   category: string;
+  logo?: string;
 }> = [
-  { name: 'IEEE RAS Tunisia Chapter', category: 'Host' },
-  { name: 'IEEE RAS', category: 'Partner' },
-
+  { name: 'IEEE RAS', category: 'Partner', logo: '/Logos/ras_logo.jpg.webp' },
+  { name: 'IEEE RAS Tunisia Chapter', category: 'Host', logo: '/Logos/ras_tunisia.webp' },
 ];
 
 export const partnersContent = {

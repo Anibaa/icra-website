@@ -6,17 +6,30 @@ import { useEffect, useState } from 'react';
 
 export function StickyCTABar() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [300, 400], [0, 1]);
 
   useEffect(() => {
-    const unsubscribe = scrollY.on('change', (latest) => {
-      setIsVisible(latest > 400);
-    });
-    return () => unsubscribe();
-  }, [scrollY]);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Show bar after scrolling 400px
+      setIsVisible(window.scrollY > 400);
+      
+      // Hide bar when reaching bottom (within 200px of footer)
+      setIsAtBottom(scrollPosition >= documentHeight - 200);
+    };
 
-  if (!isVisible) return null;
+    handleScroll(); // Check initial position
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Don't show if not visible or at bottom
+  if (!isVisible || isAtBottom) return null;
 
   return (
     <motion.div

@@ -1,17 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import { partners, partnersContent } from '@/lib/data';
 
 export function Partners() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
-    <section id="partners" className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
+    <section id="partners" className="relative w-full py-16 sm:py-20 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-10"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white leading-[1.1] tracking-tight">
             {partnersContent.title}
@@ -45,21 +54,38 @@ export function Partners() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           >
             {partners.map((partner, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.04 }}
+                transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -4 }}
-                className="glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-cyan-500/20 transition flex flex-col items-center justify-center text-center min-h-28 sm:min-h-32"
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="glass rounded-xl p-6 sm:p-8 border border-gray-200 dark:border-white/10 hover:border-cyan-500/30 transition flex flex-col items-center justify-center"
               >
-                <div className="space-y-1.5">
-                  <h3 className="font-bold text-sm sm:text-base text-gray-900 dark:text-white">{partner.name}</h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider">{partner.category}</p>
+                {/* Logo Container - Fixed aspect ratio */}
+                <div className="w-full aspect-3/2 relative mb-4 sm:mb-6 flex items-center justify-center bg-white dark:bg-gray-900 rounded-lg p-2">
+                  {partner.logo && mounted ? (
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={partner.logo === '/Logos/white.png' && theme === 'light' ? '/Logos/black.png' : partner.logo}
+                        alt={partner.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  ) : partner.logo && !mounted ? (
+                    <div className="w-full h-full bg-gray-200 dark:bg-gray-800 animate-pulse rounded" />
+                  ) : null}
+                </div>
+                
+                {/* Text Content */}
+                <div className="space-y-1 sm:space-y-2 text-center">
+                  <h3 className="font-bold text-sm sm:text-base text-gray-900 dark:text-white leading-tight">{partner.name}</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider font-medium">{partner.category}</p>
                 </div>
               </motion.div>
             ))}
@@ -71,7 +97,7 @@ export function Partners() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 sm:mt-10 text-center"
+          className="mt-10 sm:mt-12 lg:mt-16 text-center"
         >
           <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6 max-w-2xl mx-auto px-4">
             {partnersContent.callToAction}

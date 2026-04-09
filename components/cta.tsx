@@ -33,7 +33,7 @@ export function CTA() {
             transition={{ delay: 0.1 }}
             className="text-sm sm:text-base text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-2"
           >
-            Join 500+ professionals for an intensive three-day program with world-leading roboticists. Early bird registration is now open with special discounts.
+            Join 100+ professionals for an intensive three-day program with world-leading roboticists. Early bird registration is now open with special discounts.
           </motion.p>
 
           <motion.div

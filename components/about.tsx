@@ -61,7 +61,12 @@ export function About() {
             </div>
 
             <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-              The ICRA Satellite School is an intensive educational program organized by the IEEE Robotics and Automation Society. It brings together the brightest minds in robotics to share cutting-edge research and practical knowledge.
+              The IEEE International Conference on Robotics and Automation is the world’s leading robotics and automation conference, gathering top researchers, industry leaders, and academics to share advances in robotics, AI, intelligent systems, and automation. Held in Vienna in 2026, it serves as a global hub for innovation and research exchange.
+
+            </p>           
+            <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+              The ICRA Satellite School 2026 is an official IEEE RAS TEP initiative based on the DS3 model, bringing the experience of the IEEE International Conference on Robotics and Automation to Tunisia.
+
             </p>
 
             <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">

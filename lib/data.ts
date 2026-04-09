@@ -149,8 +149,8 @@ export const partners: Array<{
   category: string;
   logo?: string;
 }> = [
-  { name: 'IEEE RAS', category: 'Partner', logo: '/Logos/ras_logo.jpg.webp' },
-  { name: 'IEEE RAS Tunisia Chapter', category: 'Host', logo: '/Logos/ras_tunisia.webp' },
+  { name: 'IEEE RAS', category: 'Partner', logo: '/Logos/global.png' },
+  { name: 'IEEE RAS Tunisia Chapter', category: 'Host', logo: '/Logos/tunisia.png' },
 ];
 
 export const partnersContent = {

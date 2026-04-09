@@ -67,14 +67,14 @@ export function Partners() {
                 className="glass rounded-xl p-6 sm:p-8 border border-gray-200 dark:border-white/10 hover:border-cyan-500/30 transition flex flex-col items-center justify-center"
               >
                 {/* Logo Container - Fixed aspect ratio */}
-                <div className="w-full aspect-3/2 relative mb-4 sm:mb-6 flex items-center justify-center bg-white dark:bg-gray-900 rounded-lg p-2">
+                <div className="w-full aspect-3/2 relative mb-4 sm:mb-6 flex items-center justify-center bg-white dark:bg-gray-900 rounded-lg">
                   {partner.logo && mounted ? (
                     <div className="relative w-full h-full">
                       <Image
                         src={partner.logo === '/Logos/white.png' && theme === 'light' ? '/Logos/black.png' : partner.logo}
                         alt={partner.name}
                         fill
-                        className="object-contain"
+                        className="object-contain rounded-lg"
                       />
                     </div>
                   ) : partner.logo && !mounted ? (

@@ -38,8 +38,8 @@ export const committeeMembers = [
   {
     name: 'Jinene Ben Said',
     role: 'General Chair',
-    affiliation: 'IEEE RAS Tunisia Chapter',
-    image: '/committee/jinene-ben-said.jpg',
+    affiliation: 'IEEE RAS SAC',
+    image: '/committee/jinene-ben-said.png',
   },
   {
     name: 'Ahmed Aouididi',
@@ -54,10 +54,10 @@ export const committeeMembers = [
     image: '/committee/mohamed-amine-louati.jpg',
   },
   {
-    name: 'Mohamed Amine Ben Hlel',
+    name: 'Mohamed Amine Ben Helal',
     role: 'Technical Committee Chair',
     affiliation: 'IEEE RAS Tunisia Chapter',
-    image: '/committee/mohamed-amine-ben-hlel.jpg',
+    image: '/committee/mohamed-amine-ben-hlel.jpeg',
   },
   {
     name: 'Wyssem Neila',

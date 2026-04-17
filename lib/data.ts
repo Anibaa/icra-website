@@ -75,43 +75,43 @@ export const committeeMembers = [
     name: 'Maryem Yousfi',
     role: 'Logistics Committee',
     affiliation: 'IEEE ENICarthage SB',
-    image: '',
+    image: '/committee/Maryem Yousfi.jpg',
   },
   {
     name: 'Ahmed hihi',
     role: 'Logistics Committee',
     affiliation: 'IEEE INSAT SB',
-    image: '',
+    image: '/committee/Ahmed Hihi.jpg',
   },
   {
     name: 'Yessmine Sallemi',
     role: 'Participants Coordinator',
     affiliation: 'IEEE ENETCOM SB',
-    image: '',
+    image: '/committee/Yessmine_Sallemi.jpg',
   },
   {
     name: 'Yassine Soussi',
     role: 'Industry & Academic Coordinator',
     affiliation: 'IEEE ENIT SB',
-    image: '',
+    image: '/committee/Yassine Soussi Photo.jpg',
   },
   {
     name: 'Baha eddine Hammou',
     role: 'Program Committee',
     affiliation: 'IEEE ENSIT SB',
-    image: '',
+    image: '/committee/Baha Eddine Hammou.jpg',
   },
   {
     name: 'Mohamed Aziz Ben Slima',
     role: 'Program Committee',
     affiliation: 'IEEE ESPRIT SB',
-    image: '',
+    image: '/committee/Mohamed Aziz Ben Slima.jpg',
   },
   {
     name: 'Nadine Jellali',
     role: 'Secretary',
     affiliation: 'IEEE Tunisia Section',
-    image: '',
+    image: '/committee/Nadine Jellali.jpg',
   },
 ];
 
@@ -132,7 +132,7 @@ export const ctaFeatures = [
 export const ctaContent = {
   title: 'Ready to Transform Your Robotics Career?',
   description: 'Join 100+ professionals for an intensive three-day program with world-leading roboticists. Early bird registration is now open with special discounts.',
-  registrationDeadline: 'Limited seats available. Early registration ends June 15, 2026.',
+  registrationDeadline: 'Limited seats available.',
 };
 
 // Speakers Data

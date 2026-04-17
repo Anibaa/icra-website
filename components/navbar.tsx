@@ -39,20 +39,28 @@ export function Navbar() {
         scrolled ? 'top-0' : 'top-[40px] md:top-[40px]'
       }`}
     >
-      <div className="glass-dark backdrop-blur-lg border-b border-white/10 dark:border-white/10">
+      <div className={`glass-dark backdrop-blur-lg border-b transition-all duration-300 ${
+        scrolled 
+          ? 'border-white/20 dark:border-white/20 shadow-lg shadow-purple-500/10' 
+          : 'border-white/10 dark:border-white/10'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-1.5 sm:gap-2">
+            <Link href="/" className="flex items-center gap-1.5 sm:gap-2 group">
               {mounted && (
-                <div className="relative h-8 w-24 sm:h-10 sm:w-32">
+                <motion.div 
+                  className="relative h-8 w-24 sm:h-10 sm:w-32"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 400 }}
+                >
                   <Image
                     src={theme === 'dark' ? '/Logos/white.png' : '/Logos/black.png'}
                     alt="ICRA Logo"
                     fill
-                    className="object-contain"
+                    className="object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(153,102,255,0.5)]"
                     priority
                   />
-                </div>
+                </motion.div>
               )}
               {!mounted && (
                 <div className="h-8 w-24 sm:h-10 sm:w-32 bg-gray-200 dark:bg-gray-800 animate-pulse rounded" />
@@ -61,8 +69,13 @@ export function Navbar() {
 
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-sm hover:text-primary transition">
+                <Link 
+                  key={link.href} 
+                  href={link.href} 
+                  className="text-sm relative group hover:text-primary transition-colors"
+                >
                   {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-purple-600 to-cyan-500 group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
             </div>
@@ -71,16 +84,16 @@ export function Navbar() {
               {/* Theme Toggle */}
               {mounted && (
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.1, rotate: 15 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+                  className="p-2 rounded-full hover:bg-purple-500/10 transition-all duration-300 relative group"
                   aria-label="Toggle theme"
                 >
                   {theme === 'dark' ? (
-                    <Sun className="h-5 w-5 text-yellow-500" />
+                    <Sun className="h-5 w-5 text-yellow-500 group-hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.8)]" />
                   ) : (
-                    <Moon className="h-5 w-5 text-gray-700" />
+                    <Moon className="h-5 w-5 text-gray-700 group-hover:drop-shadow-[0_0_8px_rgba(147,51,234,0.8)]" />
                   )}
                 </motion.button>
               )}
@@ -90,7 +103,7 @@ export function Navbar() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+                className="md:hidden p-2 rounded-full hover:bg-purple-500/10 transition-all duration-300"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? (
@@ -105,10 +118,15 @@ export function Navbar() {
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
                   style={{ backgroundColor: '#f20136' }}
-                  className="hidden sm:block px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
+                  className="hidden sm:block px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90 relative overflow-hidden"
                   title="Registration opens soon"
                 >
-                  Register
+                  <span className="relative z-10">Register</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    animate={{ x: ['-100%', '200%'] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                  />
                 </motion.button>
                 {/* Tooltip popup */}
                 <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">

@@ -3,19 +3,57 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { CircuitBackground } from './circuit-background';
+import { Hero3DRobot } from './hero-3d-robot';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export function Hero() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        setMousePosition({ x, y });
+      }
+    };
+
+    const hero = heroRef.current;
+    if (hero) {
+      hero.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => {
+      if (hero) {
+        hero.removeEventListener('mousemove', handleMouseMove);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative w-full min-h-screen pt-24 sm:pt-28 md:pt-32 flex items-center justify-center overflow-hidden">
+    <section 
+      ref={heroRef}
+      className="relative w-full pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-8 lg:pb-12 flex items-center justify-center overflow-hidden"
+    >
+      {/* Mouse follower effect */}
+      <div 
+        className="absolute w-96 h-96 bg-gradient-radial from-purple-500/20 via-cyan-500/10 to-transparent rounded-full blur-3xl pointer-events-none transition-all duration-300 ease-out -z-5"
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
+      
       {/* Background gradient effect */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 bg-purple-600/15 rounded-full blur-3xl" />
@@ -26,13 +64,13 @@ export function Hero() {
       {/* Robotic circuit effect */}
       <CircuitBackground />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
         {/* Left content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-5 sm:space-y-6 lg:space-y-7"
+          className="space-y-3 sm:space-y-4 lg:space-y-6"
         >
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="flex flex-wrap gap-2">
             <div className="inline-block px-3 py-1.5 border rounded-full text-xs font-semibold" style={{ backgroundColor: 'rgba(242, 1, 54, 0.12)', borderColor: 'rgba(242, 1, 54, 0.4)', color: '#f20136' }}>
@@ -65,7 +103,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-1"
+            className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1"
           >
             <div className="relative group w-full sm:w-auto">
               <motion.button
@@ -102,7 +140,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap gap-5 sm:gap-6 lg:gap-8 pt-5 sm:pt-6 border-t border-gray-300 dark:border-white/10"
+            className="flex flex-wrap gap-3 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 border-t border-gray-300 dark:border-white/10"
           >
             <div>
               <div className="text-lg sm:text-xl font-bold" style={{ color: '#f20136' }}>3 Days</div>
@@ -119,53 +157,17 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Right content - Logo/Image area */}
+        {/* Right content - 3D Robot Core - Hidden on mobile */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative h-64 sm:h-80 lg:h-96 xl:h-full flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          className="hidden lg:block relative h-96 xl:h-full"
+          style={{ perspective: '1000px' }}
         >
-          <motion.div
-            animate={{ y: [0, 25, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            className="relative w-full h-full flex items-center justify-center"
-          >
-            {/* Glowing circles */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="absolute w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 border border-purple-500/30 rounded-full"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                className="absolute w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 border border-cyan-500/20 rounded-full"
-              />
-            </div>
-
-            {/* Logo content */}
-            <div className="relative z-10 text-center space-y-2 sm:space-y-4">
-              <div className="inline-block px-4 py-3 sm:px-6 sm:py-4 lg:px-8 glass rounded-xl sm:rounded-2xl">
-                {mounted && (
-                  <div className="relative h-16 w-32 sm:h-20 sm:w-40 lg:h-24 lg:w-48 mx-auto mb-2 sm:mb-3">
-                    <Image
-                      src={theme === 'dark' ? '/Logos/white.png' : '/Logos/black.png'}
-                      alt="ICRA Logo"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </div>
-                )}
-                {!mounted && (
-                  <div className="h-16 w-32 sm:h-20 sm:w-40 lg:h-24 lg:w-48 mx-auto mb-2 sm:mb-3 bg-gray-200 dark:bg-gray-800 animate-pulse rounded" />
-                )}
-                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Satellite School 2026</div>
-              </div>
-            </div>
-          </motion.div>
+          <div className="absolute inset-0 w-full h-full">
+            <Hero3DRobot />
+          </div>
         </motion.div>
       </div>
     </section>

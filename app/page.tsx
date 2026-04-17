@@ -3,17 +3,18 @@ import { Navbar } from '@/components/navbar';
 import { Hero } from '@/components/hero';
 import { CountdownTimer } from '@/components/countdown-timer';
 import { ProgramTimeline } from '@/components/program-timeline';
-import { About } from '@/components/about';
-import { Speakers } from '@/components/speakers';
-import { Committee } from '@/components/committee';
-import { Partners } from '@/components/partners';
-import { FAQSection } from '@/components/faq-section';
-import { CTA } from '@/components/cta';
+import { About } from '@/components/about-3d';
+import { Speakers } from '@/components/speakers-3d';
+import { Committee } from '@/components/committee-holographic';
+import { Partners } from '@/components/partners-network';
+import { FAQSection } from '@/components/faq-neural';
+import { CTA } from '@/components/cta-3d';
 import { Footer } from '@/components/footer';
 import { IEEEFooter } from '@/components/ieee-footer';
 import { ScrollToTop } from '@/components/scroll-to-top';
 import { StickyCTABar } from '@/components/sticky-cta-bar';
 import { ScrollProgress } from '@/components/scroll-progress';
+import { NeuralOverlay } from '@/components/neural-overlay-refined';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -45,7 +46,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background scroll-smooth">
+    <main className="min-h-screen bg-background scroll-smooth relative">
+      <NeuralOverlay />
       <ScrollProgress />
       <IEEEMetaNav />
       <Navbar />

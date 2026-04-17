@@ -105,7 +105,7 @@ export function CTA() {
             transition={{ delay: 0.4 }}
             className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 pt-2"
           >
-            Limited seats available. Early registration ends June 15, 2026.
+            Limited seats available.
           </motion.p>
         </motion.div>
       </div>

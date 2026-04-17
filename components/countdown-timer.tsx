@@ -74,7 +74,7 @@ export function CountdownTimer() {
   if (!mounted) return null;
 
   return (
-    <section id="countdown" className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
+    <section id="countdown" className="relative w-full py-4 sm:py-8 lg:py-12 overflow-hidden">
       {/* Robot background effects */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* Animated grid background */}
@@ -169,44 +169,148 @@ export function CountdownTimer() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-8 sm:mb-10 text-center"
+          className="mb-0 text-center"
         >
-          <div className="relative glass rounded-2xl p-5 sm:p-8 lg:p-10 border-2 border-red-500/20 overflow-hidden max-w-2xl mx-auto">
+          <motion.div 
+            className="relative glass rounded-2xl p-3 sm:p-5 lg:p-7 border-2 border-red-500/20 overflow-hidden max-w-2xl mx-auto"
+            whileHover={{ scale: 1.02 }}
+            style={{ transformStyle: 'preserve-3d' }}
+          >
             {/* Background glow */}
             <div
               className="absolute inset-0 blur-2xl opacity-15 -z-10"
               style={{ backgroundColor: '#f20136' }}
             />
 
-            <div className="relative z-10 space-y-5 sm:space-y-6">
+            {/* Robotic corner brackets */}
+            <div className="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-red-500/60" />
+            <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-red-500/60" />
+            <div className="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-red-500/60" />
+            <div className="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-red-500/60" />
+
+            {/* Animated circuit lines */}
+            <motion.div
+              className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-red-500/30 to-transparent"
+              animate={{ opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-red-500/30 to-transparent"
+              animate={{ opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+            />
+
+            {/* Pulsing data nodes */}
+            {[...Array(4)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 rounded-full bg-red-500"
+                style={{
+                  top: `${20 + i * 20}%`,
+                  left: i % 2 === 0 ? '5%' : '95%',
+                }}
+                animate={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  delay: i * 0.3,
+                }}
+              />
+            ))}
+
+            <div className="relative z-10 space-y-3 sm:space-y-4">
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-white tracking-tight leading-tight">
+                <motion.h2 
+                  className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 text-gray-900 dark:text-white tracking-tight leading-tight"
+                  animate={{
+                    textShadow: [
+                      '0 0 10px rgba(242, 1, 54, 0.3)',
+                      '0 0 20px rgba(242, 1, 54, 0.5)',
+                      '0 0 10px rgba(242, 1, 54, 0.3)',
+                    ],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
                   EVENT STARTS IN
-                </h2>
+                </motion.h2>
                 <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm tracking-widest uppercase">June 1-3 Satellite School</p>
               </div>
 
               {/* Large Event Countdown */}
-              <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
-                <motion.div className="glass rounded-lg p-4 sm:p-5 border border-red-500/20">
-                  <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white font-mono">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                <motion.div 
+                  className="glass rounded-lg p-2.5 sm:p-3 md:p-4 border border-red-500/20 relative overflow-hidden"
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {/* Robotic corner accents */}
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-red-500/50" />
+                  <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-red-500/50" />
+                  <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-red-500/50" />
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-red-500/50" />
+                  
+                  {/* Animated scan line */}
+                  <motion.div
+                    className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"
+                    animate={{ y: ['0%', '100%'] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                  />
+                  
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white font-mono relative z-10">
                     {eventCountdown.days.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-widest mt-1">Days</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-widest mt-0.5 sm:mt-1 relative z-10">Days</div>
                 </motion.div>
 
-                <motion.div className="glass rounded-lg p-4 sm:p-5 border border-red-500/20">
-                  <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white font-mono">
+                <motion.div 
+                  className="glass rounded-lg p-2.5 sm:p-3 md:p-4 border border-red-500/20 relative overflow-hidden"
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {/* Robotic corner accents */}
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-red-500/50" />
+                  <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-red-500/50" />
+                  <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-red-500/50" />
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-red-500/50" />
+                  
+                  {/* Animated scan line */}
+                  <motion.div
+                    className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"
+                    animate={{ y: ['0%', '100%'] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear', delay: 0.3 }}
+                  />
+                  
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white font-mono relative z-10">
                     {eventCountdown.hours.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-widest mt-1">Hours</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-widest mt-0.5 sm:mt-1 relative z-10">Hours</div>
                 </motion.div>
 
-                <motion.div className="glass rounded-lg p-4 sm:p-5 border border-red-500/20">
-                  <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white font-mono">
+                <motion.div 
+                  className="glass rounded-lg p-2.5 sm:p-3 md:p-4 border border-red-500/20 relative overflow-hidden"
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {/* Robotic corner accents */}
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-red-500/50" />
+                  <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-red-500/50" />
+                  <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-red-500/50" />
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-red-500/50" />
+                  
+                  {/* Animated scan line */}
+                  <motion.div
+                    className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"
+                    animate={{ y: ['0%', '100%'] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear', delay: 0.6 }}
+                  />
+                  
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white font-mono relative z-10">
                     {eventCountdown.minutes.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-widest mt-1">Minutes</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 uppercase tracking-widest mt-0.5 sm:mt-1 relative z-10">Minutes</div>
                 </motion.div>
               </div>
 
@@ -221,7 +325,7 @@ export function CountdownTimer() {
                 <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">Registration Opens Soon</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
       </div>

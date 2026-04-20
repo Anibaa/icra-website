@@ -67,6 +67,14 @@ export function IEEEFooter() {
               </Link>
               <span className="text-gray-400">|</span>
               
+              <Link 
+                href="/visa" 
+                className="text-gray-900 dark:text-gray-300 no-underline hover:underline"
+              >
+                Visa Requirements
+              </Link>
+              <span className="text-gray-400">|</span>
+              
               <a 
                 href="https://www.ieee.org/sitemap.html" 
                 className="text-gray-900 dark:text-gray-300 no-underline hover:underline"

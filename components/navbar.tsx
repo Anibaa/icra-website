@@ -29,6 +29,7 @@ export function Navbar() {
     { href: '#speakers', label: 'Speakers' },
     { href: '#committee', label: 'Committee' },
     { href: '#partners', label: 'Partners' },
+    { href: '/visa', label: 'Visa' },
   ];
 
   return (

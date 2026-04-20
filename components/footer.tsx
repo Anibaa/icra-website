@@ -132,6 +132,11 @@ export function Footer() {
             <h4 className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4">Information</h4>
             <ul className="space-y-2 sm:space-y-3">
               <li>
+                <Link href="/visa" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm">
+                  Visa Requirements
+                </Link>
+              </li>
+              <li>
                 <a 
                   href="#faq" 
                   onClick={(e) => {

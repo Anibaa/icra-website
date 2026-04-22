@@ -80,7 +80,7 @@ export function TravelGrantHero() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
-                    <span>Full registration fee payment</span>
+                    <span>Priority given to applicants demonstrating strong passion for robotics and automation.</span>
                   </li>
                 </ul>
               </CardContent>
@@ -110,7 +110,7 @@ export function TravelGrantHero() {
                   <DollarSign className="w-5 h-5 text-cyan-500 shrink-0" />
                   <div>
                     <div className="font-bold text-base">Up to $500 USD</div>
-                    <div className="text-xs text-muted-foreground">Partial funding support</div>
+                    <div className="text-xs text-muted-foreground">Funding support</div>
                   </div>
                 </div>
                 
@@ -118,11 +118,13 @@ export function TravelGrantHero() {
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-cyan-500 mt-0.5 shrink-0" />
                     <span>Active IEEE RAS membership required</span>
-                  </li>
+                  </li>                  
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-cyan-500 mt-0.5 shrink-0" />
-                    <span>Payment after event completion</span>
+                    <span>Priority given to applicants demonstrating strong passion for robotics and automation.</span>
                   </li>
+
+
                 </ul>
               </CardContent>
             </Card>
@@ -153,37 +155,6 @@ export function TravelGrantHero() {
                   <p className="text-xs text-muted-foreground mt-1.5">
                     Submit your application before the deadline to be considered for funding
                   </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-border/50">
-            <CardContent className="p-4">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <AlertCircle className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1 space-y-2">
-                  <h3 className="font-semibold text-base">Important Notes</h3>
-                  <ul className="space-y-1.5 text-xs text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-0.5">•</span>
-                      <span>Funding exclusively available to active IEEE RAS members</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-0.5">•</span>
-                      <span>Selection based on eligibility, motivation, and IEEE involvement</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-0.5">•</span>
-                      <span>3 Days intensive training in Tunisia</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-0.5 font-bold">★</span>
-                      <span><strong>Priority</strong> will be granted to applicants who can demonstrate a passion for robotics and automation</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </CardContent>

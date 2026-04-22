@@ -80,7 +80,7 @@ export function TravelGrantHero() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
-                    <span>Full registration fee reimbursement</span>
+                    <span>Full registration fee payment</span>
                   </li>
                 </ul>
               </CardContent>
@@ -121,7 +121,7 @@ export function TravelGrantHero() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-cyan-500 mt-0.5 shrink-0" />
-                    <span>Reimbursement after event completion</span>
+                    <span>Payment after event completion</span>
                   </li>
                 </ul>
               </CardContent>
@@ -174,6 +174,10 @@ export function TravelGrantHero() {
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-0.5">•</span>
                       <span>Selection based on eligibility, motivation, and IEEE involvement</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>3 Days intensive training in Tunisia</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-0.5 font-bold">★</span>

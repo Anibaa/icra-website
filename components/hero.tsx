@@ -152,6 +152,10 @@ export function Hero() {
               <div className="text-lg sm:text-xl font-bold text-purple-600 dark:text-purple-400">8</div>
               <div className="text-xs text-gray-600 dark:text-gray-400">key topics</div>
             </div>
+            <div>
+              <div className="text-lg sm:text-xl font-bold " style={{ color: '#f20136' }}>Tunisia</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">location</div>
+            </div>
           </motion.div>
         </motion.div>
 

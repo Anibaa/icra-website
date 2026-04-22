@@ -181,4 +181,6 @@ export const eventConfig = {
   registrationDeadline: { year: 2026, month: 6, day: 15 }, // June 15, 2026
   location: 'Tunisia',
   organizer: 'IEEE RAS Tunisia Chapter',
+  trainingLocation: 'Tunisia',
+  trainingDuration: '3 Days',
 };

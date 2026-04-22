@@ -33,6 +33,37 @@ export function Navbar() {
     { href: '/#travel-grant', label: 'Travel Grant' },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Extract the hash from the href
+    const hash = href.includes('#') ? href.split('#')[1] : null;
+    
+    if (hash) {
+      e.preventDefault();
+      
+      // If we're not on the home page, navigate there first
+      if (window.location.pathname !== '/') {
+        window.location.href = href;
+        return;
+      }
+      
+      // Find the element and scroll to it
+      const element = document.getElementById(hash);
+      if (element) {
+        const offset = 100; // Account for fixed navbar
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Update URL without triggering navigation
+        window.history.pushState(null, '', `#${hash}`);
+      }
+    }
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -73,7 +104,8 @@ export function Navbar() {
               {navLinks.map((link) => (
                 <Link 
                   key={link.href} 
-                  href={link.href} 
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="text-sm relative group hover:text-primary transition-colors"
                 >
                   {link.label}
@@ -183,7 +215,10 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        handleNavClick(e, link.href);
+                        setMobileMenuOpen(false);
+                      }}
                       className="block py-2 px-4 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
                     >
                       {link.label}

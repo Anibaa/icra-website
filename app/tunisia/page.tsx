@@ -336,7 +336,7 @@ const practicalInfo = [
   {
     title: 'Transportation',
     icon: '🚕',
-    description: 'Taxis, ride-sharing, and public transport readily available. Modern metro in Tunis.',
+    description: 'Taxis and public transport.',
   },
   {
     title: 'Safety',

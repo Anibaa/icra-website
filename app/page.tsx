@@ -1,6 +1,7 @@
 import { IEEEMetaNav } from '@/components/ieee-meta-nav';
 import { Navbar } from '@/components/navbar';
 import { Hero } from '@/components/hero';
+import { TravelGrantHero } from '@/components/travel-grant-hero';
 import { CountdownTimer } from '@/components/countdown-timer';
 import { ProgramTimeline } from '@/components/program-timeline';
 import { About } from '@/components/about-3d';
@@ -52,6 +53,7 @@ export default function Home() {
       <IEEEMetaNav />
       <Navbar />
       <Hero />
+      <TravelGrantHero />
       <CountdownTimer />
       <About />
       <ProgramTimeline />

@@ -67,6 +67,14 @@ export function IEEEFooter() {
               </Link>
               <span className="text-gray-400">|</span>
               
+              <a 
+                href="/#travel-grant" 
+                className="text-gray-900 dark:text-gray-300 no-underline hover:underline"
+              >
+                Travel Grant
+              </a>
+              <span className="text-gray-400">|</span>
+              
               <Link 
                 href="/visa" 
                 className="text-gray-900 dark:text-gray-300 no-underline hover:underline"

@@ -96,6 +96,14 @@ export function Footer() {
               </li>
               <li>
                 <a 
+                  href="/#travel-grant" 
+                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition text-xs sm:text-sm"
+                >
+                  Travel Grant
+                </a>
+              </li>
+              <li>
+                <a 
                   href="#speakers" 
                   onClick={(e) => {
                     e.preventDefault();
@@ -204,43 +212,7 @@ export function Footer() {
           </motion.div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-linear-to-r from-purple-600/0 via-purple-600/50 to-purple-600/0 mb-6 sm:mb-8" />
 
-        {/* Bottom */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4"
-        >
-          <p className="text-gray-500 dark:text-gray-500 text-xs sm:text-sm text-center md:text-left">
-            &copy; 2026 ICRA Satellite School. All rights reserved.
-          </p>
-          <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500 dark:text-gray-500">
-            <a href="mailto:icra-tep@ieee.tn" className="hover:text-purple-600 dark:hover:text-purple-400 transition">Contact</a>
-            <a 
-              href="#about" 
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-purple-600 dark:hover:text-purple-400 transition cursor-pointer"
-            >
-              About
-            </a>
-            <a 
-              href="#partners" 
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('partners')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-purple-600 dark:hover:text-purple-400 transition cursor-pointer"
-            >
-              Partners
-            </a>
-          </div>
-        </motion.div>
       </div>
     </footer>
   );

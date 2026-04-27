@@ -150,7 +150,7 @@ export function TravelGrantHero() {
                     Application Deadline
                   </h3>
                   <p className="text-sm">
-                    <strong className="text-destructive">April 26th, 2026 - 23:59 (GMT+1)</strong>
+                    <strong className="text-destructive">May 1st, 2026 - 23:59 (GMT+1)</strong>
                   </p>
                   <p className="text-xs text-muted-foreground mt-1.5">
                     Submit your application before the deadline to be considered for funding

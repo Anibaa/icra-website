@@ -149,7 +149,7 @@ export function Navbar() {
               </motion.button>
               
               {/* Travel Grant Button */}
-              <div className="relative group hidden sm:block">
+              {/* <div className="relative group hidden sm:block">
                 <motion.a
                   href="https://forms.gle/p4rx7A9jF2LaPsty8"
                   target="_blank"
@@ -166,10 +166,10 @@ export function Navbar() {
                     transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                   />
                 </motion.a>
-              </div>
+              </div> */}
 
               {/* Register Button */}
-              {/* <div className="relative group hidden sm:block">
+               <div className="relative group hidden sm:block">
                 <motion.button
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
@@ -191,7 +191,7 @@ export function Navbar() {
                     <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
                   </div>
                 </div>
-              </div> */}
+              </div> 
             </div>
           </div>
         </div>

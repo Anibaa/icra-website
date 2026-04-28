@@ -25,16 +25,19 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: '/#program', label: 'Program' },
-    { href: '#speakers', label: 'Speakers' },
-    { href: '#committee', label: 'Committee' },
-    { href: '#partners', label: 'Partners' },
+    // { href: '/#program', label: 'Program' },
+    { href: '/#speakers', label: 'Speakers' },
+    { href: '/#committee', label: 'Committee' },
+    { href: '/#partners', label: 'Partners' },
     { href: '/tunisia', label: 'Tunisia' },
     { href: '/visa', label: 'Visa' },
     { href: '/#travel-grant', label: 'Travel Grant' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Close mobile menu immediately
+    setMobileMenuOpen(false);
+    
     // Extract the hash from the href
     const hash = href.includes('#') ? href.split('#')[1] : null;
     
@@ -47,21 +50,24 @@ export function Navbar() {
         return;
       }
       
-      // Find the element and scroll to it
-      const element = document.getElementById(hash);
-      if (element) {
-        const offset = 100; // Account for fixed navbar
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-        
-        // Update URL without triggering navigation
-        window.history.pushState(null, '', `#${hash}`);
-      }
+      // Small delay to ensure menu closes before scrolling (better UX on mobile)
+      setTimeout(() => {
+        // Find the element and scroll to it
+        const element = document.getElementById(hash);
+        if (element) {
+          const offset = 100; // Account for fixed navbar
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update URL without triggering navigation
+          window.history.pushState(null, '', `#${hash}`);
+        }
+      }, 100);
     }
   };
 
@@ -110,7 +116,7 @@ export function Navbar() {
                   className="text-sm relative group hover:text-primary transition-colors"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-purple-600 to-cyan-500 group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-500 group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
             </div>
@@ -197,76 +203,48 @@ export function Navbar() {
         </div>
 
         {/* Mobile Menu Dropdown */}
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
               className="md:hidden border-t border-gray-300 dark:border-white/10 overflow-hidden"
             >
-              <div className="px-4 py-4 space-y-3 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg">
-                {navLinks.map((link, index) => (
-                  <motion.div
+              <div className="px-4 py-4 space-y-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg">
+                {navLinks.map((link) => (
+                  <Link
                     key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="block py-2.5 px-4 text-gray-900 dark:text-white hover:bg-purple-500/10 rounded-lg transition-colors duration-150"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={(e) => {
-                        handleNavClick(e, link.href);
-                        setMobileMenuOpen(false);
-                      }}
-                      className="block py-2 px-4 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
+                    {link.label}
+                  </Link>
                 ))}
                 
                 {/* Travel Grant Button - Mobile */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
+                <a
+                  href="https://forms.gle/p4rx7A9jF2LaPsty8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ backgroundColor: '#f20136' }}
+                  className="block w-full px-6 py-2.5 rounded-full text-white text-sm font-semibold border border-pink-400/50 brand-red-glow text-center mt-3"
                 >
-                  <a
-                    href="https://forms.gle/p4rx7A9jF2LaPsty8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{ backgroundColor: '#f20136' }}
-                    className="block w-full px-6 py-2.5 rounded-full text-white text-sm font-semibold border border-pink-400/50 brand-red-glow text-center"
-                  >
-                    Apply for Travel Grant
-                  </a>
-                </motion.div>
+                  Apply for Travel Grant
+                </a>
                 
                 {/* Register Button - Mobile */}
-                <div className="relative group">
-                  <motion.button
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (navLinks.length + 1) * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    style={{ backgroundColor: '#f20136' }}
-                    className="w-full px-6 py-2.5 rounded-full text-white text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
-                    title="Registration opens soon"
-                  >
-                    Registration Opens Soon
-                  </motion.button>
-                  {/* Tooltip popup */}
-                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                    <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
-                      Coming Soon!
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
-                    </div>
-                  </div>
-                </div>
+                <button
+                  style={{ backgroundColor: '#f20136' }}
+                  className="w-full px-6 py-2.5 rounded-full text-white text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
+                  title="Registration opens soon"
+                  disabled
+                >
+                  Registration Opens Soon
+                </button>
               </div>
             </motion.div>
           )}

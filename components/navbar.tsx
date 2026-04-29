@@ -28,6 +28,7 @@ export function Navbar() {
     // { href: '/#program', label: 'Program' },
     { href: '/#speakers', label: 'Speakers' },
     { href: '/#committee', label: 'Committee' },
+    { href: '/#registration', label: 'Registration' },
     { href: '/#partners', label: 'Partners' },
     { href: '/tunisia', label: 'Tunisia' },
     { href: '/visa', label: 'Visa' },
@@ -179,9 +180,9 @@ export function Navbar() {
                 <motion.button
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => window.open('https://forms.gle/zn9UJpE9Y9CWxW1R9', '_blank')}
                   style={{ backgroundColor: '#f20136' }}
-                  className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90 relative overflow-hidden"
-                  title="Registration opens soon"
+                  className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-pointer relative overflow-hidden"
                 >
                   <span className="relative z-10">Register</span>
                   <motion.div
@@ -190,13 +191,6 @@ export function Navbar() {
                     transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                   />
                 </motion.button>
-         
-                <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                  <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
-                    Coming Soon!
-                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
-                  </div>
-                </div>
               </div> 
             </div>
           </div>
@@ -238,12 +232,14 @@ export function Navbar() {
                 
                 {/* Register Button - Mobile */}
                 <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.open('https://forms.gle/zn9UJpE9Y9CWxW1R9', '_blank');
+                  }}
                   style={{ backgroundColor: '#f20136' }}
-                  className="w-full px-6 py-2.5 rounded-full text-white text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-not-allowed opacity-90"
-                  title="Registration opens soon"
-                  disabled
+                  className="w-full px-6 py-2.5 rounded-full text-white text-sm font-semibold border border-pink-400/50 brand-red-glow cursor-pointer"
                 >
-                  Registration Opens Soon
+                  Register Now
                 </button>
               </div>
             </motion.div>

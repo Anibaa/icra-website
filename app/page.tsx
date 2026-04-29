@@ -7,6 +7,7 @@ import { ProgramTimeline } from '@/components/program-timeline';
 import { About } from '@/components/about-3d';
 import { Speakers } from '@/components/speakers-3d';
 import { Committee } from '@/components/committee-holographic';
+import { Registration } from '@/components/registration';
 import { Partners } from '@/components/partners-network';
 import { FAQSection } from '@/components/faq-neural';
 import { CTA } from '@/components/cta-3d';
@@ -56,6 +57,7 @@ export default function Home() {
       <TravelGrantHero />
       <CountdownTimer />
       <About />
+      <Registration />
       <ProgramTimeline />
       <Speakers />
       <Committee />
@@ -65,7 +67,6 @@ export default function Home() {
       <Footer />
       <IEEEFooter />
       <ScrollToTop />
-      <StickyCTABar />
     </main>
   );
 }

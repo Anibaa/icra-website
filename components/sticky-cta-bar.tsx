@@ -62,13 +62,16 @@ export function StickyCTABar() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                const programSection = document.getElementById('program');
-                programSection?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 glass rounded-full text-sm font-medium text-gray-900 dark:text-white border border-red-500/30 hover:border-red-400/60 hover:bg-red-500/10 transition"
+              onClick={() => window.open('https://forms.gle/zn9UJpE9Y9CWxW1R9', '_blank')}
+              style={{ backgroundColor: '#f20136' }}
+              className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm font-semibold text-white border border-pink-400/50 hover:border-pink-300 brand-red-glow transition relative overflow-hidden"
             >
-              View Program
+              <span className="relative z-10">Register</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                animate={{ x: ['-100%', '200%'] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+              />
             </motion.button>
             <motion.a
               href="https://forms.gle/p4rx7A9jF2LaPsty8"
@@ -76,16 +79,10 @@ export function StickyCTABar() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: '#f20136' }}
-              className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm font-semibold text-white border border-pink-400/50 hover:border-pink-300 brand-red-glow transition text-center relative overflow-hidden"
+              className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 glass rounded-full text-sm font-medium text-gray-900 dark:text-white border border-red-500/30 hover:border-red-400/60 hover:bg-red-500/10 transition text-center"
               aria-label="Apply for Travel Grant"
             >
-              <span className="relative z-10">Travel Grant</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{ x: ['-100%', '200%'] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              />
+              Travel Grant
             </motion.a>
           </div>
         </div>

@@ -71,19 +71,12 @@ export function CTA() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://forms.gle/zn9UJpE9Y9CWxW1R9', '_blank')}
                 style={{ backgroundColor: '#f20136' }}
-                className="w-full px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-semibold transition text-sm border border-pink-400/40 hover:border-pink-300 brand-red-glow cursor-not-allowed opacity-90"
-                title="Registration opens soon"
+                className="w-full px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-semibold transition text-sm border border-pink-400/40 hover:border-pink-300 brand-red-glow cursor-pointer"
               >
-                Registration Opens Soon
+                Register Now
               </motion.button>
-              {/* Tooltip popup */}
-              <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
-                  Coming Soon!
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
-                </div>
-              </div>
             </div>
             <motion.button
               whileHover={{ scale: 1.03 }}

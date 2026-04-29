@@ -174,6 +174,79 @@ export const heroContent = {
   ],
 };
 
+// Registration Data
+export const registrationTiers = [
+  {
+    id: 'ieee-ras-student',
+    title: 'IEEE RAS Student',
+    price: 280,
+    priceUSD: 97,
+    currency: 'TND',
+    category: 'IEEE RAS Student',
+    membershipType: 'IEEE RAS Member',
+  },
+  {
+    id: 'ieee-student',
+    title: 'IEEE Student',
+    price: 310,
+    priceUSD: 107,
+    currency: 'TND',
+    category: 'IEEE Student',
+    membershipType: 'IEEE Member',
+  },
+  {
+    id: 'non-ieee-student',
+    title: 'Student Non IEEE Member',
+    price: 330,
+    priceUSD: 114,
+    currency: 'TND',
+    category: 'Non-IEEE Student',
+    membershipType: 'Non-IEEE Member',
+  },
+  {
+    id: 'ieee-professional',
+    title: 'Professional IEEE Member',
+    price: 350,
+    priceUSD: 121,
+    currency: 'TND',
+    category: 'IEEE Professional',
+    membershipType: 'IEEE Member',
+  },
+  {
+    id: 'non-ieee-professional',
+    title: 'Non IEEE Member',
+    price: 380,
+    priceUSD: 131,
+    currency: 'TND',
+    category: 'Non-IEEE Professional',
+    membershipType: 'Non-IEEE Member',
+  },
+];
+
+export const registrationFeatures = [
+  'Full 3-day access to all sessions',
+  'All workshop materials and resources',
+  'Certificate of completion',
+  'Networking sessions and coffee breaks',
+  'Lunch and refreshments for all 3 days',
+  'Access to exclusive robotics demonstrations',
+  'Digital proceedings and presentation slides',
+  'Welcome kit with conference materials',
+];
+
+export const registrationContent = {
+  title: 'Registration',
+  subtitle: 'Choose your registration tier',
+  description: 'Join us for an intensive 3-day robotics program. Select the tier that best fits your profile.',
+  note: 'All prices are in Tunisian Dinars (TND). Registration includes full access to all sessions, materials, and refreshments.',
+  studentNote: 'IEEE Student includes graduate students and undergraduate students.',
+  limitedSpots: 'Limited spots available - Register early to secure your place!',
+  paymentNote: 'Payment instructions will be sent after registration confirmation.',
+  conversionNote: 'USD conversion based on exchange rate between 2.8 and 3.0 TND/USD',
+  registrationOpenDate: 'April 29, 2026',
+  registrationDeadline: 'May 11, 2026',
+};
+
 // Event Configuration
 export const eventConfig = {
   startDate: { year: 2026, month: 6, day: 1 }, // June 1, 2026

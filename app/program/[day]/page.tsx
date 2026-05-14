@@ -2,12 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
-import { ArrowLeft, Clock, MapPin, Users, Video, Coffee, Award, Wrench } from 'lucide-react';
+import { ArrowLeft, Clock, MapPin, Users, Video, Coffee, Award, Wrench, AlertCircle } from 'lucide-react';
 import { IEEEMetaNav } from '@/components/ieee-meta-nav';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { IEEEFooter } from '@/components/ieee-footer';
 import { detailedProgram, venueInfo } from '@/lib/data-program';
+import { eventConfig, isDeadlinePassed, registrationContent } from '@/lib/data';
+import { useState, useEffect } from 'react';
 
 const getSessionIcon = (type?: string) => {
   switch (type) {
@@ -48,6 +50,12 @@ export default function ProgramDetail() {
   const params = useParams();
   const dayNum = parseInt(params.day as string) || 1;
   const detail = detailedProgram[dayNum as keyof typeof detailedProgram] || detailedProgram[1];
+  
+  const [isRegistrationExpired, setIsRegistrationExpired] = useState(false);
+
+  useEffect(() => {
+    setIsRegistrationExpired(isDeadlinePassed(eventConfig.registrationDeadline));
+  }, []);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
@@ -72,6 +80,18 @@ export default function ProgramDetail() {
               <ArrowLeft size={20} />
               <span>Back to Home</span>
             </motion.button>
+
+            {/* Draft Program Notice */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-700"
+            >
+              <p className="text-sm text-amber-800 dark:text-amber-200 flex items-center gap-2">
+                <span className="text-lg">⚠️</span>
+                <strong>Note:</strong> This program is a draft and is subject to change. Final details will be confirmed closer to the event date.
+              </p>
+            </motion.div>
 
             <div>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{detail.date}</p>
@@ -166,27 +186,42 @@ export default function ProgramDetail() {
             className="space-y-6"
           >
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white">Ready to Join Us?</h3>
-            <p className="text-gray-700 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              Register now for {detail.day} and gain access to world-class training in robotics and automation.
-            </p>
-            <div className="relative group inline-block">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ backgroundColor: '#f20136' }}
-                className="px-8 py-4 rounded-lg text-white font-semibold border border-pink-400/50 hover:border-pink-300 brand-red-glow transition cursor-not-allowed opacity-90"
-                title="Registration opens soon"
-              >
-                Registration Opens Soon
-              </motion.button>
-              {/* Tooltip popup */}
-              <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
-                  Coming Soon!
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
-                </div>
-              </div>
-            </div>
+            {isRegistrationExpired ? (
+              <>
+                <p className="text-gray-700 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+                  Registration for {detail.day} has closed. We look forward to seeing you at the event!
+                </p>
+                <motion.div
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gray-400 dark:bg-gray-700 text-white font-semibold border border-gray-500/50 opacity-60 cursor-not-allowed"
+                >
+                  <span>Registration Closed</span>
+                  <AlertCircle className="w-4 h-4" />
+                </motion.div>
+                <p className="text-sm text-red-600 dark:text-red-400 font-semibold">
+                  Registration deadline ({registrationContent.registrationDeadline}) has passed
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-gray-700 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+                  Register now for {detail.day} and gain access to world-class training in robotics and automation.
+                </p>
+                <motion.a
+                  href="https://forms.gle/zn9UJpE9Y9CWxW1R9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ backgroundColor: '#f20136' }}
+                  className="inline-block px-8 py-4 rounded-lg text-white font-semibold border border-pink-400/50 hover:border-pink-300 brand-red-glow transition"
+                >
+                  Register Now
+                </motion.a>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Deadline: {registrationContent.registrationDeadline}
+                </p>
+              </>
+            )}
           </motion.div>
         </div>
       </section>

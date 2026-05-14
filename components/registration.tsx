@@ -1,10 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, Award, GraduationCap, Briefcase, AlertCircle, CreditCard, Users, ArrowRight } from 'lucide-react';
-import { registrationTiers, registrationFeatures, registrationContent } from '@/lib/data';
+import { Check, Award, GraduationCap, Briefcase, AlertCircle, CreditCard, Users, ArrowRight, Calendar } from 'lucide-react';
+import { registrationTiers, registrationFeatures, registrationContent, eventConfig, isDeadlinePassed } from '@/lib/data';
+import { useState, useEffect } from 'react';
 
 export function Registration() {
+  const [isRegistrationExpired, setIsRegistrationExpired] = useState(false);
+  const [isProjectExpired, setIsProjectExpired] = useState(false);
+
+  useEffect(() => {
+    // Check if deadlines have passed
+    setIsRegistrationExpired(isDeadlinePassed(eventConfig.registrationDeadline));
+    setIsProjectExpired(isDeadlinePassed(eventConfig.projectSubmissionDeadline));
+  }, []);
+
   const handleRegistration = () => {
     // Open registration form in new tab
     window.open('https://forms.gle/zn9UJpE9Y9CWxW1R9', '_blank');
@@ -44,7 +54,11 @@ export function Registration() {
           </h2>
           
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-4">
-            {registrationContent.description}
+            This year, Tunisia will welcome passionate students, researchers, young professionals, and PhD candidates from across the globe for an exceptional journey into the world of robotics and intelligent technologies. PhD participants are also invited to register and showcase their research through poster presentations, making this an even greater platform to share ideas, connect, and inspire.
+          </p>
+          
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-4">
+            At the intersection of innovation, collaboration, and cultural heritage, the ICRA Satellite School 2026 promises a unique experience designed to inspire the next generation of tech leaders.
           </p>
 
           {/* Important Notices */}
@@ -149,26 +163,42 @@ export function Registration() {
           </div>
         </motion.div>
 
-        {/* Central Registration Button */}
+        {/* Central Registration Button - Dynamic based on deadline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleRegistration}
-            style={{ backgroundColor: '#f20136' }}
-            className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white text-sm sm:text-base font-semibold border border-pink-400/50 hover:border-pink-300 brand-red-glow transition-all duration-300 cursor-pointer inline-flex items-center gap-2 shadow-lg shadow-red-500/25"
-          >
-            <span>Register Now</span>
-            <ArrowRight className="w-4 h-4" />
-          </motion.button>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5">
-            Click to open registration form
-          </p>
+          {isRegistrationExpired ? (
+            <>
+              <motion.div
+                className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-gray-400 dark:bg-gray-700 text-white text-sm sm:text-base font-semibold border border-gray-500/50 inline-flex items-center gap-2 shadow-lg opacity-60 cursor-not-allowed"
+              >
+                <span>Registration Closed</span>
+                <AlertCircle className="w-4 h-4" />
+              </motion.div>
+              <p className="text-xs text-red-600 dark:text-red-400 mt-1.5 font-semibold">
+                Registration deadline ({registrationContent.registrationDeadline}) has passed
+              </p>
+            </>
+          ) : (
+            <>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleRegistration}
+                style={{ backgroundColor: '#f20136' }}
+                className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white text-sm sm:text-base font-semibold border border-pink-400/50 hover:border-pink-300 brand-red-glow transition-all duration-300 cursor-pointer inline-flex items-center gap-2 shadow-lg shadow-red-500/25"
+              >
+                <span>Register Now</span>
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5">
+                Click to open registration form
+              </p>
+            </>
+          )}
         </motion.div>
 
         {/* Important Notes */}
@@ -235,6 +265,107 @@ export function Registration() {
             </div>
           </div>
         </motion.div>
+{/* 
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-6"
+        >
+          <div className="glass rounded-xl p-5 sm:p-6 border-2 border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-purple-500/10">
+            <div className="text-center mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 mb-3">
+                <Award className="w-4 h-4 text-cyan-500" />
+                <span className="text-sm font-semibold text-cyan-700 dark:text-cyan-300">Call for Projects</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Call for Projects is Now Open!
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3">
+                ICRA Satellite School 2026
+              </p>
+            </div>
+
+            <div className="space-y-3 mb-4">
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                The IEEE ICRA Satellite School 2026 is coming to Hammamet, Tunisia from 1–3 June 2026 and we want to see what <strong>YOU</strong> have been building! We are inviting students, researchers, and innovators to submit their projects and present them to a passionate international robotics community.
+              </p>
+              
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                This is your chance to showcase your work, share your ideas, and connect with experts and peers from around the world!
+              </p>
+
+              <div className="glass rounded-lg p-4 bg-white/50 dark:bg-gray-800/50">
+                <h4 className="font-semibold text-sm text-gray-900 dark:text-white mb-2">Why submit?</h4>
+                <ul className="space-y-1.5">
+                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                    <Check className="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" />
+                    <span>Present your project to a global robotics audience</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                    <Check className="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" />
+                    <span>Get valuable feedback from leading experts</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                    <Check className="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" />
+                    <span>Build international connections that last beyond the event</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                    <Check className="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" />
+                    <span>Be part of an ICRA-style experience right here in Tunisia</span>
+                  </li>
+                </ul>
+              </div>
+
+              <p className="text-xs text-gray-600 dark:text-gray-400 italic">
+                All submissions will be reviewed, and selected candidates will be contacted with further details regarding participation.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 items-center justify-center mb-4">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-red-100 dark:bg-red-900/30 rounded-full border border-red-300 dark:border-red-700">
+                <Calendar className="w-4 h-4 text-red-600 dark:text-red-400" />
+                <span className="text-xs font-semibold text-red-700 dark:text-red-300">
+                  Submission Deadline: <strong>15 May 2026</strong>
+                </span>
+              </div>
+            </div>
+
+            <div className="text-center">
+              {isProjectExpired ? (
+                <>
+                  <motion.div
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gray-400 dark:bg-gray-700 text-white text-sm font-semibold shadow-lg opacity-60 cursor-not-allowed"
+                  >
+                    <span>Project Submission Closed</span>
+                    <AlertCircle className="w-4 h-4" />
+                  </motion.div>
+                  <p className="text-xs text-red-600 dark:text-red-400 mt-2 font-semibold">
+                    Project submission deadline (May 15, 2026) has passed
+                  </p>
+                </>
+              ) : (
+                <>
+                  <motion.a
+                    href="https://forms.gle/ikomGrC1iAxBsDHf8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold shadow-lg shadow-cyan-500/25 transition-all duration-300"
+                  >
+                    <span>Submit Your Project</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.a>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                    Deadline: May 15, 2026 - Don&apos;t miss this opportunity!
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        </motion.div> */}
 
         {/* Registration Timeline */}
         <motion.div
@@ -244,24 +375,24 @@ export function Registration() {
           className="text-center"
         >
           <div className="glass rounded-lg p-4 border border-gray-200 dark:border-white/10 max-w-4xl mx-auto">
-            <h4 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white mb-2.5">Registration Timeline</h4>
+            <h4 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white mb-2.5">Important Deadlines</h4>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center text-xs">
               <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                 <span className="text-gray-700 dark:text-gray-300">
-                  Opens: <strong>{registrationContent.registrationOpenDate}</strong>
+                  Registration Deadline: <strong>15 May 2026</strong>
                 </span>
               </div>
               <div className="hidden sm:block w-6 h-px bg-gray-300 dark:bg-gray-600"></div>
               <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                 <span className="text-gray-700 dark:text-gray-300">
-                  Deadline: <strong>{registrationContent.registrationDeadline}</strong>
+                  Project Submission: <strong>15 May 2026</strong>
                 </span>
               </div>
             </div>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-2.5">
-              {registrationContent.note}
+              Ready to explore, learn, present, and connect? Register now!
             </p>
           </div>
         </motion.div>

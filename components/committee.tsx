@@ -58,16 +58,16 @@ export function Committee() {
                 className="group relative glass rounded-lg p-4 sm:p-5 border border-gray-200 dark:border-white/10 hover:border-red-500/40 transition-all duration-300 overflow-hidden"
               >
                 {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-linear-to-b from-red-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-b from-red-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Top colored bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-red-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 <div className="relative text-center">
                   {/* Avatar at top center */}
                   <div className="flex justify-center mb-3">
                     <div className="relative">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-lg group-hover:shadow-2xl group-hover:shadow-red-500/40 transition-all duration-300 overflow-hidden ring-4 ring-gray-100 dark:ring-gray-800 group-hover:ring-red-500/20">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-lg group-hover:shadow-2xl group-hover:shadow-red-500/40 transition-all duration-300 overflow-hidden ring-4 ring-gray-100 dark:ring-gray-800 group-hover:ring-red-500/20">
                         {member.image ? (
                           <Image
                             src={member.image}

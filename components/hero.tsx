@@ -74,7 +74,7 @@ export function Hero() {
         >
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="flex flex-wrap gap-2">
             <div className="inline-block px-3 py-1.5 border rounded-full text-xs font-semibold" style={{ backgroundColor: 'rgba(242, 1, 54, 0.12)', borderColor: 'rgba(242, 1, 54, 0.4)', color: '#f20136' }}>
-              📍 Tunisia • June 1-3, 2026
+              📍 Hammamet Garden Resort & Spa • June 1-3, 2026
             </div>
             <div className="inline-block px-3 py-1.5 border rounded-full text-xs font-medium bg-slate-500/8 dark:bg-slate-500/8 border-slate-500/25 dark:border-slate-500/25 text-slate-600 dark:text-slate-400">
               IEEE RAS Tunisia Chapter
@@ -153,8 +153,8 @@ export function Hero() {
               <div className="text-xs text-gray-600 dark:text-gray-400">key topics</div>
             </div>
             <div>
-              <div className="text-lg sm:text-xl font-bold " style={{ color: '#f20136' }}>Tunisia</div>
-              <div className="text-xs text-gray-600 dark:text-gray-400">location</div>
+              <div className="text-lg sm:text-xl font-bold" style={{ color: '#f20136' }}>Hammamet</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Tunisia</div>
             </div>
           </motion.div>
         </motion.div>

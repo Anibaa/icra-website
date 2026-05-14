@@ -20,6 +20,21 @@ export function ProgramTimeline() {
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-4">
             {programContent.description}
           </p>
+          
+          {/* Draft Program Notice */}
+          {isProgramDetailsAvailable && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700"
+            >
+              <span className="text-lg">⚠️</span>
+              <span className="text-xs sm:text-sm text-amber-800 dark:text-amber-200">
+                <strong>Note:</strong> This program is a draft and is subject to change
+              </span>
+            </motion.div>
+          )}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
@@ -41,10 +56,10 @@ export function ProgramTimeline() {
                   <div className="text-xs text-gray-500 dark:text-gray-500">{program.date}</div>
                 </div>
 
-                <div className="h-px bg-linear-to-r from-red-600/40 to-pink-500/40" />
+                <div className="h-px bg-gradient-to-r from-red-600/40 to-pink-500/40" />
 
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-red-600 dark:group-hover:from-red-400 group-hover:to-pink-600 dark:group-hover:to-pink-400 transition">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-600 dark:group-hover:from-red-400 group-hover:to-pink-600 dark:group-hover:to-pink-400 transition">
                     {program.title}
                   </h3>
 

@@ -7,7 +7,7 @@ export function CTA() {
   return (
     <section className="relative w-full py-10 sm:py-12 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-linear-to-r from-purple-600/15 via-cyan-600/15 to-red-600/15 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/15 via-cyan-600/15 to-red-600/15 blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

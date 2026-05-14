@@ -244,16 +244,27 @@ export const registrationContent = {
   paymentNote: 'Payment instructions will be sent after registration confirmation.',
   conversionNote: 'USD conversion based on exchange rate between 2.8 and 3.0 TND/USD',
   registrationOpenDate: 'April 29, 2026',
-  registrationDeadline: 'May 11, 2026',
+  registrationDeadline: '15 May 2026',
+  registrationExpired: false, // Will be checked dynamically
 };
 
 // Event Configuration
 export const eventConfig = {
   startDate: { year: 2026, month: 6, day: 1 }, // June 1, 2026
   endDate: { year: 2026, month: 6, day: 3 }, // June 3, 2026
-  registrationDeadline: { year: 2026, month: 6, day: 15 }, // June 15, 2026
-  location: 'Tunisia',
+  registrationDeadline: { year: 2026, month: 5, day: 15 }, // May 15, 2026 - EXTENDED
+  travelGrantDeadline: { year: 2026, month: 4, day: 30 }, // April 30, 2026 - EXPIRED
+  projectSubmissionDeadline: { year: 2026, month: 5, day: 15 }, // May 15, 2026 - EXTENDED
+  location: 'Hammamet, Tunisia',
+  venue: 'Hammamet Garden Resort & Spa',
   organizer: 'IEEE RAS Tunisia Chapter',
-  trainingLocation: 'Tunisia',
+  trainingLocation: 'Hammamet Garden Resort & Spa',
   trainingDuration: '3 Days',
+};
+
+// Helper function to check if a deadline has passed
+export const isDeadlinePassed = (deadline: { year: number; month: number; day: number }): boolean => {
+  const deadlineDate = new Date(deadline.year, deadline.month - 1, deadline.day, 23, 59, 59);
+  const now = new Date();
+  return now > deadlineDate;
 };

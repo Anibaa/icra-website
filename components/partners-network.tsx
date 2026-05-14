@@ -269,28 +269,22 @@ export function Partners() {
           <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-6 max-w-2xl mx-auto">
             {partnersContent.callToAction}
           </p>
-          <div className="relative group inline-block">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: '#f20136' }}
-              className="px-8 py-3 rounded-full text-base text-white font-semibold transition border-2 border-pink-400/50 cursor-not-allowed opacity-90 relative overflow-hidden"
-              title="Registration opens soon"
-            >
-              <span className="relative z-10">Registration Opens Soon</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{ x: ['-100%', '200%'] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              />
-            </motion.button>
-            <div className="absolute -top-14 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              <div className="bg-gray-900 dark:bg-gray-800 text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap shadow-xl">
-                Coming Soon!
-                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
-              </div>
-            </div>
-          </div>
+          <motion.a
+            href="https://forms.gle/zn9UJpE9Y9CWxW1R9"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ backgroundColor: '#f20136' }}
+            className="inline-block px-8 py-3 rounded-full text-base text-white font-semibold transition border-2 border-pink-400/50 hover:border-pink-300 relative overflow-hidden"
+          >
+            <span className="relative z-10">Register Now</span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              animate={{ x: ['-100%', '200%'] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            />
+          </motion.a>
         </motion.div>
       </div>
     </section>

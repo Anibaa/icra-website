@@ -147,13 +147,13 @@ export function TravelGrantHero() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-base mb-1.5 flex items-center gap-2">
-                    Application Deadline
+                    Application Deadline - EXPIRED
                   </h3>
                   <p className="text-sm">
                     <strong className="text-destructive">May 1st, 2026 - 23:59 (GMT+1)</strong>
                   </p>
                   <p className="text-xs text-muted-foreground mt-1.5">
-                    Submit your application before the deadline to be considered for funding
+                    The deadline has passed. Late applications may be considered in subsequent waves but are not guaranteed.
                   </p>
                 </div>
               </div>
@@ -197,26 +197,18 @@ export function TravelGrantHero() {
             </CardContent>
           </Card>
 
-          {/* CTA Button */}
+          {/* CTA Button - EXPIRED */}
           <div className="text-center pt-2">
-            <motion.a
-              href="https://forms.gle/eXjfkYBPbio2EfbD6"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: '#f20136' }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white text-base font-semibold border border-pink-400/50 brand-red-glow relative overflow-hidden group"
+            <motion.div
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-400 dark:bg-gray-700 text-white text-base font-semibold border border-gray-500/50 opacity-60 cursor-not-allowed"
             >
-              <span className="relative z-10">Apply for Travel Grant</span>
-              <ExternalLink className="w-4 h-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{ x: ['-100%', '200%'] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              />
-            </motion.a>
-            <p className="text-xs text-muted-foreground mt-3">
+              <span className="relative z-10">Travel Grant Application Closed</span>
+              <AlertCircle className="w-4 h-4 relative z-10" />
+            </motion.div>
+            <p className="text-xs text-red-600 dark:text-red-400 mt-3 font-semibold">
+              Application deadline (May 1, 2026) has passed
+            </p>
+            <p className="text-xs text-muted-foreground mt-2">
               Questions? Contact us at{" "}
               <a href="mailto:icra-tep@ieee.tn" className="text-primary hover:underline">
                 icra-tep@ieee.tn

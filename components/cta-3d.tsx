@@ -1,12 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Cpu, Globe } from 'lucide-react';
+import { Users, Cpu, Globe, AlertCircle } from 'lucide-react';
 import { MOTION_CONFIG } from '@/lib/motion-config';
 import { CircuitTexture } from '@/components/robotic-elements/circuit-texture';
 import { SensorGroup } from '@/components/robotic-elements/sensor-indicator';
+import { eventConfig, isDeadlinePassed, registrationContent } from '@/lib/data';
+import { useState, useEffect } from 'react';
 
 export function CTA() {
+  const [isRegistrationExpired, setIsRegistrationExpired] = useState(false);
+
+  useEffect(() => {
+    setIsRegistrationExpired(isDeadlinePassed(eventConfig.registrationDeadline));
+  }, []);
   return (
     <section className="relative w-full py-16 sm:py-20 lg:py-24 overflow-hidden">
       {/* Circuit texture */}
@@ -195,15 +202,24 @@ export function CTA() {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
           >
-            <div className="relative group w-full sm:w-auto">
-              <motion.button
+            {isRegistrationExpired ? (
+              <motion.div
+                className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-gray-400 dark:bg-gray-700 text-white font-bold text-base border-2 border-gray-500/50 relative overflow-hidden inline-flex items-center justify-center gap-2 opacity-60 cursor-not-allowed"
+              >
+                <span className="relative z-10">Registration Closed</span>
+                <AlertCircle className="w-4 h-4 relative z-10" />
+              </motion.div>
+            ) : (
+              <motion.a
+                href="https://forms.gle/zn9UJpE9Y9CWxW1R9"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{ backgroundColor: '#f20136' }}
-                className="w-full px-8 sm:px-10 py-3 sm:py-4 rounded-full text-white font-bold transition text-base border-2 border-pink-400/50 cursor-not-allowed opacity-90 relative overflow-hidden"
-                title="Registration opens soon"
+                className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-full text-white font-bold transition text-base border-2 border-pink-400/50 hover:border-pink-300 relative overflow-hidden inline-block text-center"
               >
-                <span className="relative z-10">Registration Opens Soon</span>
+                <span className="relative z-10">Register Now</span>
                 {/* Animated shine effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
@@ -222,15 +238,8 @@ export function CTA() {
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-              </motion.button>
-              {/* Tooltip */}
-              <div className="absolute -top-14 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                <div className="bg-gray-900 dark:bg-gray-800 text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap shadow-xl">
-                  Coming Soon!
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
-                </div>
-              </div>
-            </div>
+              </motion.a>
+            )}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -259,15 +268,21 @@ export function CTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-sm text-gray-600 dark:text-gray-400 pt-4"
+            className={`text-sm pt-4 font-semibold ${isRegistrationExpired ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-gray-400'}`}
           >
-            <motion.span
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              ⚡
-            </motion.span>
-            {' '}Limited seats available.
+            {isRegistrationExpired ? (
+              `Registration deadline (${registrationContent.registrationDeadline}) has passed`
+            ) : (
+              <>
+                <motion.span
+                  animate={{ opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  ⚡
+                </motion.span>
+                {' '}Limited seats available. Deadline: {registrationContent.registrationDeadline}
+              </>
+            )}
           </motion.p>
         </motion.div>
       </div>

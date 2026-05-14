@@ -157,7 +157,7 @@ export function CountdownTimer() {
 
         {/* Horizontal scan lines */}
         <motion.div
-          className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-red-500/50 to-transparent"
+          className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"
           animate={{ y: ['0%', '100%'] }}
           transition={{ duration: 4, repeat: Infinity }}
         />
@@ -318,11 +318,11 @@ export function CountdownTimer() {
               <div className="flex items-center justify-center gap-2">
                 <motion.div
                   className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full"
-                  style={{ backgroundColor: '#f20136' }}
+                  style={{ backgroundColor: '#10b981' }}
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
-                <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">Registration Opens Soon</span>
+                <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">Registration Now Open</span>
               </div>
             </div>
           </motion.div>

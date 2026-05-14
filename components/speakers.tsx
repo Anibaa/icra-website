@@ -59,13 +59,13 @@ export function Speakers() {
                 <div className="space-y-3">
                   {/* Avatar placeholder - centered */}
                   <div className="flex justify-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/30 transition-all duration-300">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-purple-600 to-cyan-600 flex items-center justify-center text-xl sm:text-2xl font-bold text-white shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/30 transition-all duration-300">
                       {speaker.name.charAt(0)}
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-purple-600 dark:group-hover:from-purple-400 group-hover:to-cyan-600 dark:group-hover:to-cyan-400 transition leading-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 dark:group-hover:from-purple-400 group-hover:to-cyan-600 dark:group-hover:to-cyan-400 transition leading-tight">
                       {speaker.name}
                     </h3>
                     <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 font-medium">{speaker.role}</p>
@@ -89,24 +89,17 @@ export function Speakers() {
           <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4 sm:mb-5 px-4">
             {speakers.length === 0 ? 'Stay tuned for speaker announcements' : 'More speakers to be announced as we approach the event'}
           </p>
-          <div className="relative group inline-block">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: '#f20136' }}
-              className="px-5 sm:px-6 py-2.5 rounded-full text-sm text-white font-semibold transition border border-pink-400/40 hover:border-pink-300 brand-red-glow cursor-not-allowed opacity-90"
-              title="Registration opens soon"
-            >
-              Registration Opens Soon
-            </motion.button>
-            {/* Tooltip popup */}
-            <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
-                Coming Soon!
-                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
-              </div>
-            </div>
-          </div>
+          <motion.a
+            href="https://forms.gle/zn9UJpE9Y9CWxW1R9"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ backgroundColor: '#f20136' }}
+            className="inline-block px-5 sm:px-6 py-2.5 rounded-full text-sm text-white font-semibold transition border border-pink-400/40 hover:border-pink-300 brand-red-glow"
+          >
+            Register Now
+          </motion.a>
         </motion.div>
       </div>
     </section>

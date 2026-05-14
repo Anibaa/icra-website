@@ -54,13 +54,13 @@ export default function Home() {
       <IEEEMetaNav />
       <Navbar />
       <Hero />
-      <TravelGrantHero />
       <CountdownTimer />
-      <About />
       <Registration />
+      <About />
       <ProgramTimeline />
       <Speakers />
       <Committee />
+      <TravelGrantHero />
       <Partners />
       <FAQSection />
       <CTA />
